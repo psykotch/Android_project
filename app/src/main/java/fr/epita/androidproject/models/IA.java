@@ -1,6 +1,6 @@
-package fr.epita.androidproject;
+package fr.epita.androidproject.models;
 
-public class ia {
+public class IA {
     static String name;
     int energy;
     int life;
@@ -13,7 +13,7 @@ public class ia {
     //private boolean fumé;
 
 
-    public ia() {
+    public IA() {
         this.name = "unnames";
         this.energy = 0;
         this.life = 10;
@@ -24,7 +24,7 @@ public class ia {
         //this.poison = false;
         //this.fumé = false;
     }
-    public ia(String name) {
+    public IA(String name) {
         this.name = name;
         this.energy = 0;
         this.life = 10;
@@ -38,10 +38,10 @@ public class ia {
     /*methode pour lancer les dé
         tant que lancé disponible
         verifier carte possédé
-        tant que dicenumber est > 0
-        creer un dé
-        lancer le dé
-        relancé
+            tant que dicenumber est > 0
+            creer un dé
+            lancer le dé
+        relancé dé si souhaité
     */
     //methode pour lancé un dé
     //methode pour acheter des cartes
