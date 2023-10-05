@@ -9,5 +9,22 @@
         android:id="@+id/mainPage"
         android:name="fr.epita.androidproject.fragments.MainPage"
         android:label="fragment_main_page"
-        tools:layout="@layout/fragment_main_page" />
+        tools:layout="@layout/fragment_main_page" >
+        <action
+            android:id="@+id/action_mainPage_to_aboutPage"
+            app:destination="@id/aboutPage" />
+        <action
+            android:id="@+id/action_mainPage_to_selectPlayerPage"
+            app:destination="@id/selectPlayerPage" />
+    </fragment>
+    <fragment
+        android:id="@+id/aboutPage"
+        android:name="fr.epita.androidproject.fragments.AboutPage"
+        android:label="fragment_about_page"
+        tools:layout="@layout/fragment_about_page" />
+    <fragment
+        android:id="@+id/selectPlayerPage"
+        android:name="fr.epita.androidproject.fragments.SelectPlayerPage"
+        android:label="fragment_select_player_page"
+        tools:layout="@layout/fragment_select_player_page" />
 </navigation>
