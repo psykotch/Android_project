@@ -26,5 +26,47 @@
         android:id="@+id/selectPlayerPage"
         android:name="fr.epita.androidproject.fragments.SelectPlayerPage"
         android:label="fragment_select_player_page"
-        tools:layout="@layout/fragment_select_player_page" />
+        tools:layout="@layout/fragment_select_player_page" >
+        <action
+            android:id="@+id/action_selectPlayerPage_to_boardPage"
+            app:destination="@id/boardPage" />
+    </fragment>
+    <fragment
+        android:id="@+id/boardPage"
+        android:name="fr.epita.androidproject.fragments.BoardPage"
+        android:label="fragment_main_board"
+        tools:layout="@layout/fragment_main_board" >
+        <action
+            android:id="@+id/action_boardPage_to_playerDetailPage"
+            app:destination="@id/playerDetailPage" />
+        <action
+            android:id="@+id/action_boardPage_to_cardListPage"
+            app:destination="@id/cardListPage" />
+        <action
+            android:id="@+id/action_boardPage_to_storePage"
+            app:destination="@id/storePage" />
+        <action
+            android:id="@+id/action_boardPage_to_cardDetailPage"
+            app:destination="@id/cardDetailPage" />
+    </fragment>
+    <fragment
+        android:id="@+id/cardListPage"
+        android:name="fr.epita.androidproject.fragments.CardListPage"
+        android:label="fragment_card_list_page"
+        tools:layout="@layout/fragment_card_list_page" />
+    <fragment
+        android:id="@+id/cardDetailPage"
+        android:name="fr.epita.androidproject.fragments.CardDetailPage"
+        android:label="fragment_card_page"
+        tools:layout="@layout/fragment_card_page" />
+    <fragment
+        android:id="@+id/storePage"
+        android:name="fr.epita.androidproject.fragments.StorePage"
+        android:label="fragment_store_page"
+        tools:layout="@layout/fragment_store_page" />
+    <fragment
+        android:id="@+id/playerDetailPage"
+        android:name="fr.epita.androidproject.fragments.PlayerDetailPage"
+        android:label="fragment_player_detail_page"
+        tools:layout="@layout/fragment_player_detail_page" />
 </navigation>
