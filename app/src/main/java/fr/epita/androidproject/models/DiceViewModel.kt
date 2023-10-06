@@ -10,9 +10,9 @@ class DiceViewModel : ViewModel() {
         ONE, TWO, THREE, ENERGY, ATTACK, LIFE
     }
 
-    var diceArray : MutableLiveData<Array<diceFace>>  = MutableLiveData(arrayOf(diceFace.ONE, diceFace.TWO, diceFace.THREE, diceFace.ENERGY, diceFace.ATTACK, diceFace.LIFE))
+    var diceArray : Array<diceFace>  = arrayOf(diceFace.ONE, diceFace.TWO, diceFace.THREE, diceFace.ENERGY, diceFace.ATTACK, diceFace.LIFE)
 
     private fun roll(): diceFace {
-        return diceArray.value?.random() ?:diceFace.LIFE;
+        return diceArray.random()
     }
 }
