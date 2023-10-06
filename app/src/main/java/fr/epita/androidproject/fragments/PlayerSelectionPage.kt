@@ -8,13 +8,13 @@ import android.view.ViewGroup
 import android.widget.Button
 import androidx.navigation.fragment.findNavController
 import fr.epita.androidproject.R
-import kotlin.system.exitProcess
 
-class MainPage : Fragment() {
+class PlayerSelectionPage : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
+
         }
     }
 
@@ -23,32 +23,18 @@ class MainPage : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_main_page, container, false)
+        return inflater.inflate(R.layout.fragment_player_selection_page, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val aboutButton : Button = view.findViewById(R.id.aboutButton)
-        val selectPlayerButton : Button = view.findViewById(R.id.startButton)
-        val selectQuitButton : Button = view.findViewById(R.id.quitButton)
+        val gameBoardButton : Button = view.findViewById(R.id.startGameButton)
 
-        aboutButton.setOnClickListener() {
+        gameBoardButton.setOnClickListener() {
             findNavController().navigate(
-                MainPageDirections.actionMainPageToAboutPage()
+                PlayerSelectionPageDirections.actionSelectPlayerPageToBoardPage()
             )
         }
-
-        selectPlayerButton.setOnClickListener() {
-            findNavController().navigate(
-                MainPageDirections.actionMainPageToSelectPlayerPage()
-            )
-        }
-
-        selectQuitButton.setOnClickListener() {
-            exitProcess(0);
-        }
-
     }
-
 }

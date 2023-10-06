@@ -15,7 +15,7 @@
             app:destination="@id/aboutPage" />
         <action
             android:id="@+id/action_mainPage_to_selectPlayerPage"
-            app:destination="@id/selectPlayerPage" />
+            app:destination="@id/playerSelectionPage" />
     </fragment>
     <fragment
         android:id="@+id/aboutPage"
@@ -23,19 +23,19 @@
         android:label="fragment_about_page"
         tools:layout="@layout/fragment_about_page" />
     <fragment
-        android:id="@+id/selectPlayerPage"
-        android:name="fr.epita.androidproject.fragments.SelectPlayerPage"
+        android:id="@+id/playerSelectionPage"
+        android:name="fr.epita.androidproject.fragments.PlayerSelectionPage"
         android:label="fragment_select_player_page"
-        tools:layout="@layout/fragment_select_player_page" >
+        tools:layout="@layout/fragment_player_selection_page" >
         <action
             android:id="@+id/action_selectPlayerPage_to_boardPage"
-            app:destination="@id/boardPage" />
+            app:destination="@id/gameBoardPage" />
     </fragment>
     <fragment
-        android:id="@+id/boardPage"
-        android:name="fr.epita.androidproject.fragments.BoardPage"
+        android:id="@+id/gameBoardPage"
+        android:name="fr.epita.androidproject.fragments.GameBoardPage"
         android:label="fragment_main_board"
-        tools:layout="@layout/fragment_main_board" >
+        tools:layout="@layout/fragment_game_board_page" >
         <action
             android:id="@+id/action_boardPage_to_playerDetailPage"
             app:destination="@id/playerDetailPage" />
