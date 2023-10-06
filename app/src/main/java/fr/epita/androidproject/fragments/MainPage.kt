@@ -36,6 +36,12 @@ class MainPage : Fragment() {
                 MainPageDirections.actionMainPageToAboutPage()
             )
         }
+
+        selectPlayerButton.setOnClickListener() {
+            findNavController().navigate(
+                MainPageDirections.actionMainPageToSelectPlayerPage()
+            )
+        }
     }
 
 }
