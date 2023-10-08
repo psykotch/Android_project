@@ -15,8 +15,9 @@
         android:layout_height="wrap_content"
         android:text="Quit"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/aboutButton"
-        tools:layout_editor_absoluteX="376dp" />
+        app:layout_constraintEnd_toStartOf="@+id/guideline_ver_70"
+        app:layout_constraintStart_toStartOf="@+id/guideline_ver_30"
+        app:layout_constraintTop_toBottomOf="@+id/aboutButton" />
 
     <TextView
         android:id="@+id/mainTitle"
@@ -24,8 +25,9 @@
         android:layout_height="wrap_content"
         android:text="King of Paris"
         app:layout_constraintBottom_toTopOf="@+id/startButton"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="381dp" />
+        app:layout_constraintEnd_toStartOf="@+id/guideline_ver_70"
+        app:layout_constraintStart_toStartOf="@+id/guideline_ver_30"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/startButton"
@@ -33,9 +35,8 @@
         android:layout_height="wrap_content"
         android:text="Start"
         app:layout_constraintBottom_toTopOf="@+id/aboutButton"
-        app:layout_constraintEnd_toEndOf="@+id/aboutButton"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/aboutButton"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_ver_70"
+        app:layout_constraintStart_toStartOf="@+id/guideline_ver_30"
         app:layout_constraintTop_toBottomOf="@+id/mainTitle" />
 
     <Button
@@ -44,8 +45,22 @@
         android:layout_height="wrap_content"
         android:text="About"
         app:layout_constraintBottom_toTopOf="@+id/quitButton"
-        app:layout_constraintEnd_toEndOf="@+id/quitButton"
-        app:layout_constraintStart_toStartOf="@+id/quitButton"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_ver_70"
+        app:layout_constraintStart_toStartOf="@+id/guideline_ver_30"
         app:layout_constraintTop_toBottomOf="@+id/startButton" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_ver_30"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.3" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_ver_70"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.7" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
