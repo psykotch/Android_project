@@ -12,10 +12,14 @@ import kotlin.system.exitProcess
 
 class GameBoardPage : Fragment() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val playButton : Button = view.findViewById(R.id.playButton)
 
+        playButton.setOnClickListener() {
+            findNavController().navigate(
+                GameBoardPageDirections.actionGameBoardPageToRollDicePage()
+            )
         }
     }
 

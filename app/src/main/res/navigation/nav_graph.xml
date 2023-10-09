@@ -48,6 +48,9 @@
         <action
             android:id="@+id/action_boardPage_to_cardDetailPage"
             app:destination="@id/cardDetailPage" />
+        <action
+            android:id="@+id/action_gameBoardPage_to_rollDicePage"
+            app:destination="@id/rollDicePage" />
     </fragment>
     <fragment
         android:id="@+id/cardListPage"
@@ -69,4 +72,9 @@
         android:name="fr.epita.androidproject.fragments.PlayerDetailPage"
         android:label="fragment_player_detail_page"
         tools:layout="@layout/fragment_player_detail_page" />
+    <fragment
+        android:id="@+id/rollDicePage"
+        android:name="fr.epita.androidproject.fragments.RollDicePage"
+        android:label="fragment_roll_dice"
+        tools:layout="@layout/fragment_roll_dice" />
 </navigation>
