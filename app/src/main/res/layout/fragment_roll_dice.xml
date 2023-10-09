@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout9"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.RollDicePage">
+
+
+    <Button
+        android:id="@+id/roll_dice_stop_button"
+        android:layout_width="106dp"
+        android:layout_height="70dp"
+        android:background="@drawable/box"
+        android:text="Stop"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="@+id/roll_dice_guideline_ver_10"
+
+        app:layout_constraintTop_toTopOf="@+id/roll_dice_guideline_hor_75" />
+
+    <Button
+        android:id="@+id/roll_dice_play_button"
+        android:layout_width="106dp"
+        android:layout_height="70dp"
+        android:background="@drawable/box"
+        android:text="Roll"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toStartOf="@+id/roll_dice_guideline_ver_90"
+
+        app:layout_constraintTop_toTopOf="@+id/roll_dice_guideline_hor_75" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/roll_dice_guideline_hor_75"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.75" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/roll_dice_guideline_hor_15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.15" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/roll_dice_guideline_ver_10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.1" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/roll_dice_guideline_ver_90"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.90" />
+
+    <ToggleButton
+        android:id="@+id/dice_face_1"
+        android:layout_width="67dp"
+        android:layout_height="83dp"
+        android:background="@drawable/box"
+        android:text="one"
+        android:textOff="one"
+        app:layout_constraintBottom_toTopOf="@+id/roll_dice_guideline_hor_75"
+        app:layout_constraintEnd_toStartOf="@+id/dice_face_2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/roll_dice_guideline_hor_15" />
+
+    <ToggleButton
+        android:id="@+id/dice_face_2"
+        android:layout_width="67dp"
+        android:layout_height="83dp"
+        android:background="@drawable/box"
+        android:text="one"
+        android:textOff="one"
+        app:layout_constraintBottom_toTopOf="@+id/roll_dice_guideline_hor_75"
+        app:layout_constraintEnd_toStartOf="@+id/dice_face_3"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/dice_face_1"
+        app:layout_constraintTop_toTopOf="@+id/roll_dice_guideline_hor_15" />
+
+    <ToggleButton
+        android:id="@+id/dice_face_3"
+        android:layout_width="67dp"
+        android:layout_height="83dp"
+        android:background="@drawable/box"
+        android:text="one"
+        android:textOff="one"
+        app:layout_constraintBottom_toTopOf="@+id/roll_dice_guideline_hor_75"
+        app:layout_constraintEnd_toStartOf="@+id/dice_face_4"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/dice_face_2"
+        app:layout_constraintTop_toTopOf="@+id/roll_dice_guideline_hor_15" />
+
+    <ToggleButton
+        android:id="@+id/dice_face_4"
+        android:layout_width="67dp"
+        android:layout_height="83dp"
+        android:background="@drawable/box"
+        android:text="one"
+        android:textOff="one"
+        app:layout_constraintBottom_toTopOf="@+id/roll_dice_guideline_hor_75"
+        app:layout_constraintEnd_toStartOf="@+id/dice_face_5"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/dice_face_3"
+        app:layout_constraintTop_toTopOf="@+id/roll_dice_guideline_hor_15" />
+
+    <ToggleButton
+        android:id="@+id/dice_face_5"
+        android:layout_width="67dp"
+        android:layout_height="83dp"
+        android:background="@drawable/box"
+        android:text="one"
+        android:textOff="one"
+        app:layout_constraintBottom_toTopOf="@+id/roll_dice_guideline_hor_75"
+        app:layout_constraintEnd_toStartOf="@+id/dice_face_6"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/dice_face_4"
+        app:layout_constraintTop_toTopOf="@+id/roll_dice_guideline_hor_15" />
+
+    <ToggleButton
+        android:id="@+id/dice_face_6"
+        android:layout_width="67dp"
+        android:layout_height="83dp"
+        android:background="@drawable/box"
+        android:text="one"
+        android:textOff="one"
+        app:layout_constraintBottom_toTopOf="@+id/roll_dice_guideline_hor_75"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/dice_face_5"
+        app:layout_constraintTop_toTopOf="@+id/roll_dice_guideline_hor_15" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Roll dice Page"
+        app:layout_constraintBottom_toTopOf="@+id/roll_dice_guideline_hor_15"
+        app:layout_constraintEnd_toStartOf="@+id/roll_dice_guideline_ver_90"
+        app:layout_constraintStart_toStartOf="@+id/roll_dice_guideline_ver_10"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

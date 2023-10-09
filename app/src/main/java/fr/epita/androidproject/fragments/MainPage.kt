@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import androidx.navigation.fragment.findNavController
 import fr.epita.androidproject.R
+import kotlin.system.exitProcess
 
 class MainPage : Fragment() {
 
@@ -30,6 +31,7 @@ class MainPage : Fragment() {
 
         val aboutButton : Button = view.findViewById(R.id.aboutButton)
         val selectPlayerButton : Button = view.findViewById(R.id.startButton)
+        val selectQuitButton : Button = view.findViewById(R.id.quitButton)
 
         aboutButton.setOnClickListener() {
             findNavController().navigate(
@@ -42,6 +44,11 @@ class MainPage : Fragment() {
                 MainPageDirections.actionMainPageToSelectPlayerPage()
             )
         }
+
+        selectQuitButton.setOnClickListener() {
+            exitProcess(0);
+        }
+
     }
 
 }

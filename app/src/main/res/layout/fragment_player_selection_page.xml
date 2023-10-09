@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout7"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.PlayerSelectionPage">
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Player Selection Page"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_hori_15"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="40dp"
+        android:text="player1"
+        app:layout_constraintStart_toEndOf="@+id/PlayerSelect_1"
+        app:layout_constraintTop_toTopOf="@+id/guideline_hori_15" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginBottom="40dp"
+        android:text="Player 2 "
+        app:layout_constraintBottom_toTopOf="@+id/guideline_hori_85"
+        app:layout_constraintStart_toEndOf="@+id/PlayerSelect_2" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginBottom="40dp"
+        android:text="Player4"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_hori_85"
+        app:layout_constraintStart_toEndOf="@+id/PlayerSelect_4" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="40dp"
+        android:text="Player 3 "
+        app:layout_constraintStart_toEndOf="@+id/PlayerSelect_3"
+        app:layout_constraintTop_toTopOf="@+id/guideline_hori_15" />
+
+    <ImageButton
+        android:id="@+id/PlayerSelect_1"
+        android:layout_width="114dp"
+        android:layout_height="100dp"
+        app:layout_constraintStart_toStartOf="@+id/guideline_ver_10"
+        app:layout_constraintTop_toTopOf="@+id/guideline_hori_15"
+        tools:src="@tools:sample/avatars"
+        android:contentDescription="Player1" />
+
+    <ImageButton
+        android:id="@+id/PlayerSelect_3"
+        android:layout_width="114dp"
+        android:layout_height="100dp"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vec_60"
+        app:layout_constraintTop_toTopOf="@+id/guideline_hori_15"
+        tools:src="@tools:sample/avatars"
+        android:contentDescription="Player2" />
+
+    <ImageButton
+        android:id="@+id/PlayerSelect_4"
+        android:layout_width="114dp"
+        android:layout_height="100dp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_hori_85"
+        app:layout_constraintStart_toStartOf="@+id/guideline_vec_60"
+        tools:src="@tools:sample/avatars"
+        android:contentDescription="Player3" />
+
+    <ImageButton
+        android:id="@+id/PlayerSelect_2"
+        android:layout_width="114dp"
+        android:layout_height="100dp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_hori_85"
+        app:layout_constraintStart_toStartOf="@+id/guideline_ver_10"
+        tools:src="@tools:sample/avatars"
+        android:contentDescription="Player4" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_ver_10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.1" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_vec_60"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.6" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_hori_15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.15" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_hori_85"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.85" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
