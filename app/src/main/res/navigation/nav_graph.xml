@@ -51,6 +51,10 @@
         <action
             android:id="@+id/action_gameBoardPage_to_rollDicePage"
             app:destination="@id/rollDicePage" />
+        <argument
+            android:name="playerName"
+            app:argType="string"
+            android:defaultValue="defaultName" />
     </fragment>
     <fragment
         android:id="@+id/cardListPage"
