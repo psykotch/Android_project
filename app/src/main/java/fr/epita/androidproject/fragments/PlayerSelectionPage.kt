@@ -34,7 +34,7 @@ class PlayerSelectionPage : Fragment() {
 
         val playerName: EditText = view.findViewById(R.id.editTextText)
          playerName.editableText
-        val StartButton : ImageButton = view.findViewById(R.id.button)
+        val StartButton : Button = view.findViewById(R.id.button)
 
 
         StartButton.setOnClickListener() {
