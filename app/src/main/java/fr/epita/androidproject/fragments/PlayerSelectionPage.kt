@@ -40,7 +40,7 @@ class PlayerSelectionPage : Fragment() {
         StartButton.setOnClickListener() {
 
             findNavController().navigate(
-                PlayerSelectionPageDirections.actionSelectPlayerPageToBoardPage(playerName.editableText.toString())
+                PlayerSelectionPageDirections.actionSelectPlayerPageToBoardPage(playerName.editableText.toString(),null)
             )
         }
 
