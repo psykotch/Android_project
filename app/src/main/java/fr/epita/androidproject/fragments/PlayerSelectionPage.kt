@@ -34,13 +34,15 @@ class PlayerSelectionPage : Fragment() {
 
         val playerName: EditText = view.findViewById(R.id.editTextText)
          playerName.editableText
-        val StartButton : Button = view.findViewById(R.id.button)
+        val startButton : Button = view.findViewById(R.id.button)
 
 
-        StartButton.setOnClickListener() {
+        startButton.setOnClickListener() {
 
             findNavController().navigate(
-                PlayerSelectionPageDirections.actionSelectPlayerPageToBoardPage(playerName.editableText.toString(),null)
+                PlayerSelectionPageDirections.actionSelectPlayerPageToBoardPage(playerName.editableText.toString(),
+                    arrayOf("test","test2")
+                )
             )
         }
 

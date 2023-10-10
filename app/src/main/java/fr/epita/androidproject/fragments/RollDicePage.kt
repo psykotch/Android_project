@@ -49,11 +49,12 @@ class RollDicePage : Fragment() {
         }
         for (i in 0..5) {
             diceFaceButtons[i].setOnClickListener() {
-                if (!diceFaceButtons[i].isChecked) {
+                if (diceFaceButtons[i].isChecked) {
                     dices_faces_selected.add(diceFaceButtons[i].textOff.toString())
-                    text.text = dices_faces_selected.toString()
+                    text.text = "selected :" + dices_faces_selected.toString()
                 } else {
                     dices_faces_selected.remove(diceFaceButtons[i].text.toString())
+                    text.text = "selected :" + dices_faces_selected.toString()
                 }
             }
         }
@@ -77,7 +78,7 @@ class RollDicePage : Fragment() {
             findNavController().navigate(
                 RollDicePageDirections.actionRollDicePageToGameBoardPage(
                     null,
-                    arrayOf("hello","hi")
+                    dices_faces_selected_array
                 )
             )
         }
