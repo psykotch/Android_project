@@ -17,22 +17,11 @@
         android:layout_marginBottom="14dp"
         android:alpha="0.4"
         android:src="@drawable/img_game_table"
+        android:translationY="1dp"
         app:layout_constraintBottom_toTopOf="@+id/guideline7"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline2" />
-
-    <ImageButton
-        android:id="@+id/board_player1_image_button"
-        android:layout_width="64dp"
-        android:layout_height="64dp"
-        android:contentDescription="player number 2 icon"
-        android:scaleType="fitXY"
-        android:src="@drawable/cthulhu"
-        app:layout_constraintBottom_toTopOf="@+id/guideline7"
-        app:layout_constraintEnd_toStartOf="@+id/guideline5"
-        app:layout_constraintStart_toStartOf="@+id/guideline4"
-        app:layout_constraintTop_toTopOf="@+id/guideline3" />
 
     <Button
         android:id="@+id/playButton"
@@ -559,6 +548,45 @@
                 android:textStyle="bold" />
 
         </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/board_player1"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/board_player_cards"
+        app:layout_constraintEnd_toStartOf="@+id/guideline5"
+        app:layout_constraintStart_toStartOf="@+id/guideline4"
+        app:layout_constraintTop_toTopOf="@+id/guideline3">
+
+        <TextView
+            android:id="@+id/board_player1_dummy2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textStyle="bold" />
+
+        <ImageButton
+            android:id="@+id/board_player1_image_button"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:contentDescription="player number 2 icon"
+            android:scaleType="fitXY"
+            android:src="@drawable/cthulhu" />
+
+        <TextView
+            android:id="@+id/board_player1_dummy"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textStyle="bold" />
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
