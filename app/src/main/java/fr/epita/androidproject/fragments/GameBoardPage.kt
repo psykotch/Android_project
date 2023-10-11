@@ -22,8 +22,6 @@ class GameBoardPage : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val sharedPreferences = requireActivity().getPreferences(Context.MODE_PRIVATE)
-        val preferencesEditor = sharedPreferences.edit()
 
         val playerName: TextView = view.findViewById(R.id.playerName)
         playerName.text = this.gameBoardViewModel.player.value!!.name.value.toString()
@@ -48,7 +46,7 @@ class GameBoardPage : Fragment() {
         val playerDetailButton: Button = view.findViewById(R.id.viewDetailPlayer)
         playerDetailButton.setOnClickListener(){
             findNavController().navigate(
-                GameBoardPageDirections.actionBoardPageToPlayerDetailPage(true)
+                GameBoardPageDirections.actionBoardPageToPlayerDetailPage(0,true)
             )
         }
 

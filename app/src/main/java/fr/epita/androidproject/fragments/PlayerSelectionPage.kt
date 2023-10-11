@@ -17,8 +17,7 @@ import fr.epita.androidproject.models.GameBoardViewModel
 
 class PlayerSelectionPage : Fragment() {
 
-//    private val gameBroadViewModel: GameBroadViewModel by activityViewModels()
-    private val gameBoardViewModel: GameBoardViewModel by activityViewModels()
+    private val gameBroadViewModel: GameBroadViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

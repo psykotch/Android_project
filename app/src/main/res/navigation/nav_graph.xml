@@ -88,6 +88,9 @@
             android:name="is_player"
             app:argType="boolean"
             android:defaultValue="false" />
+        <argument
+            android:name="ai_player_index"
+            app:argType="integer" />
     </fragment>
     <fragment
         android:id="@+id/rollDicePage"
