@@ -14,6 +14,7 @@ import kotlin.system.exitProcess
 
 class MainPage : Fragment() {
 
+    private val gameBroadViewModel: GameBroadViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

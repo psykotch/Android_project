@@ -2,7 +2,9 @@ package fr.epita.androidproject.models
 
 class AIPlayerViewModel : PlayerViewModel() {
     private val diceViewModel = DiceViewModel()
-
+    init{
+        this.name.postValue("ai player")
+    }
     fun makeMove(): Array<DiceViewModel.diceFace> {
 
         val rolledDice = diceViewModel.roll()

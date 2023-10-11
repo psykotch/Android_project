@@ -18,8 +18,7 @@ import kotlin.system.exitProcess
 
 class PlayerSelectionPage : Fragment() {
 
-    //private val gameBroadViewModel: GameBroadViewModel by activityViewModels()
-    private val gameBroadViewModel: GameBroadViewModel by viewModels()
+    private val gameBroadViewModel: GameBroadViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -40,8 +39,7 @@ class PlayerSelectionPage : Fragment() {
         startButton.setOnClickListener() {
             this.gameBroadViewModel.player.value!!.name.postValue(playerName.editableText.toString())
             findNavController().navigate(
-                PlayerSelectionPageDirections.actionSelectPlayerPageToBoardPage(playerName.editableText.toString(),
-                    null
+                PlayerSelectionPageDirections.actionSelectPlayerPageToBoardPage(null
                 )
             )
         }

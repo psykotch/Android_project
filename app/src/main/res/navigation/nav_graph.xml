@@ -52,10 +52,6 @@
             android:id="@+id/action_gameBoardPage_to_rollDicePage"
             app:destination="@id/rollDicePage" />
         <argument
-            android:name="playerName"
-            app:argType="string"
-            app:nullable="true" />
-        <argument
             android:name="diceFaces"
             app:argType="string[]"
             app:nullable="true" />
@@ -88,6 +84,9 @@
             android:name="is_player"
             app:argType="boolean"
             android:defaultValue="false" />
+        <argument
+            android:name="ai_player_index"
+            app:argType="integer" />
     </fragment>
     <fragment
         android:id="@+id/rollDicePage"

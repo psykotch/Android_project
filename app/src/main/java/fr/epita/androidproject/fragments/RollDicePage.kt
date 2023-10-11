@@ -71,9 +71,7 @@ class RollDicePage : Fragment() {
             }
 
             findNavController().navigate(
-                RollDicePageDirections.actionRollDicePageToGameBoardPage(
-                    null,
-                    dicesFacesSelected.toTypedArray()
+                RollDicePageDirections.actionRollDicePageToGameBoardPage(dicesFacesSelected.toTypedArray()
                 )
             )
         }

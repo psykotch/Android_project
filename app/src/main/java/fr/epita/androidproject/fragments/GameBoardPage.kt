@@ -22,24 +22,13 @@ import kotlin.system.exitProcess
 class GameBoardPage : Fragment() {
     val args: GameBoardPageArgs by navArgs()
     private val gameBroadViewModel: GameBroadViewModel by activityViewModels()
-
     //private val gameBroadViewModel: GameBroadViewModel by viewModels()
-    private var playerName: String = "no name"
+
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val sharedPreferences = requireActivity().getPreferences(Context.MODE_PRIVATE)
-        val preferencesEditor = sharedPreferences.edit()
 
         val playerName: TextView = view.findViewById(R.id.playerName)
-        if (args.playerName != null) {
-            this.playerName = args.playerName!!
-            //this.gameBroadViewModel.player.value?.name?.postValue(this.playerName)
-            preferencesEditor.putString("name", this.playerName)
-            preferencesEditor.apply()
-        } else
-            this.playerName = sharedPreferences.getString("name", this.playerName)!!
-            //this.playerName = this.gameBroadViewModel.player.value!!.name.value.toString()
-
         playerName.text = this.gameBroadViewModel.player.value!!.name.value.toString()
 
 //        playerName.text = this.playerName
@@ -51,7 +40,7 @@ class GameBoardPage : Fragment() {
         val playerDetailButton: Button = view.findViewById(R.id.viewDetailPlayer)
         playerDetailButton.setOnClickListener(){
             findNavController().navigate(
-                GameBoardPageDirections.actionBoardPageToPlayerDetailPage(true)
+                GameBoardPageDirections.actionBoardPageToPlayerDetailPage(0,true)
             )
         }
         val playButton: Button = view.findViewById(R.id.playButton)
