@@ -5,121 +5,318 @@
     android:id="@+id/frameLayout5"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.GameBoardPage">
+    android:screenOrientation="landscape"
+    tools:context=".fragments.GameBoardPage"
+    android:background="@drawable/wooden_background">
 
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Game Board Page"
-        app:layout_constraintBottom_toTopOf="@+id/guideline"
+    <TableRow
+        android:id="@+id/tableRow"
+        android:layout_width="381dp"
+        android:layout_height="289dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/linearLayout2">
 
-    <Button
-        android:id="@+id/shopButton"
-        android:layout_width="117dp"
-        android:layout_height="67dp"
-        android:layout_marginStart="28dp"
-        android:text="Shop"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline5" />
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/img_game_table" />
+
+    </TableRow>
 
     <Button
         android:id="@+id/playButton"
-        android:layout_width="117dp"
-        android:layout_height="67dp"
-        android:layout_marginEnd="28dp"
+        android:layout_width="128dp"
+        android:layout_height="64dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="8dp"
         android:text="Play"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline5" />
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/linearLayout"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
     <Button
-        android:id="@+id/board_card_button_1"
-        android:layout_width="117dp"
-        android:layout_height="67dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="14dp"
-        android:text="Card"
+        android:id="@+id/shopButton"
+        android:layout_width="128dp"
+        android:layout_height="64dp"
+        android:layout_marginStart="8dp"
+        android:text="Shop"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/board_card_button_3"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/shopButton"
-        app:layout_constraintTop_toTopOf="@+id/guideline5" />
-
-    <Button
-        android:id="@+id/board_card_button_2"
-        android:layout_width="117dp"
-        android:layout_height="67dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="14dp"
-        android:text="Card"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/playButton"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/board_card_button_3"
-        app:layout_constraintTop_toTopOf="@+id/guideline5" />
-
-    <Button
-        android:id="@+id/board_card_button_3"
-        android:layout_width="117dp"
-        android:layout_height="67dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="14dp"
-        android:text="Card"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/board_card_button_2"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/board_card_button_1"
-        app:layout_constraintTop_toTopOf="@+id/guideline5" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.1" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.77" />
-
-    <TextView
-        android:id="@+id/playerName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="playerName"
-        app:layout_constraintBottom_toTopOf="@+id/guideline5"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.092"
+        app:layout_constraintEnd_toStartOf="@+id/linearLayout"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4"
-        app:layout_constraintVertical_bias="0.891" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
-    <TextView
-        android:id="@+id/playerName2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="playerName"
-        app:layout_constraintBottom_toTopOf="@+id/guideline5"
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="512dp"
+        android:layout_height="80dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.427"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4"
-        app:layout_constraintVertical_bias="0.891" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
+
+        <Button
+            android:id="@+id/Card1"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="Generic Card" />
+
+        <Button
+            android:id="@+id/Card2"
+            android:layout_width="wrap_content"
+            android:layout_height="80dp"
+            android:layout_weight="1"
+            android:text="Generic Card" />
+
+        <Button
+            android:id="@+id/Card3"
+            android:layout_width="wrap_content"
+            android:layout_height="80dp"
+            android:layout_weight="1"
+            android:text="Generic Card" />
+
+        <Button
+            android:id="@+id/Card4"
+            android:layout_width="wrap_content"
+            android:layout_height="80dp"
+            android:layout_weight="1"
+            android:text="Generic Card" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="384dp"
+        android:layout_height="64dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="20dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:src="@drawable/victory_point" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="28dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="TextView"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/imageView6"
+            android:layout_width="32dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:src="@drawable/life" />
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="21dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="TextView"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/imageView7"
+            android:layout_width="10dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:src="@drawable/dice_energy" />
+
+        <TextView
+            android:id="@+id/textView13"
+            android:layout_width="14dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="TextView"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <ImageButton
+        android:id="@+id/imageButton5"
+        android:layout_width="110dp"
+        android:layout_height="97dp"
+        android:contentDescription="player number 2 icon"
+        android:rotation="180"
+        android:src="@drawable/pumpkinjack"
+        app:layout_constraintBottom_toTopOf="@+id/tableRow"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
+        app:layout_constraintVertical_bias="1.0" />
 
     <Button
-        android:id="@+id/viewDetailPlayer"
+        android:id="@+id/button6"
+        android:layout_width="128dp"
+        android:layout_height="64dp"
+        android:layout_marginEnd="12dp"
+        android:clickable="false"
+        android:text="life"
+        app:icon="@drawable/dice_life"
+        app:layout_constraintBottom_toTopOf="@+id/tableRow"
+        app:layout_constraintEnd_toStartOf="@+id/imageButton5"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
+        app:layout_constraintVertical_bias="0.351" />
+
+    <Button
+        android:id="@+id/button8"
+        android:layout_width="128dp"
+        android:layout_height="64dp"
+        android:clickable="false"
+        android:rotation="-90"
+        android:text="life"
+        app:icon="@drawable/dice_life"
+        app:layout_constraintBottom_toTopOf="@+id/imageButton7"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.79"
+        app:layout_constraintStart_toEndOf="@+id/tableRow"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.788" />
+
+    <Button
+        android:id="@+id/button9"
+        android:layout_width="128dp"
+        android:layout_height="64dp"
+        android:clickable="false"
+        android:rotation="90"
+        android:text="life"
+        app:icon="@drawable/dice_life"
+        app:layout_constraintBottom_toTopOf="@+id/imageButton6"
+        app:layout_constraintEnd_toStartOf="@+id/tableRow"
+        app:layout_constraintHorizontal_bias="0.212"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
+        app:layout_constraintVertical_bias="0.773" />
+
+    <Button
+        android:id="@+id/button7"
+        android:layout_width="128dp"
+        android:layout_height="64dp"
+        android:layout_marginStart="12dp"
+        android:clickable="false"
+        android:text="point"
+        app:icon="@drawable/victory_point"
+        app:layout_constraintBottom_toTopOf="@+id/tableRow"
+        app:layout_constraintStart_toEndOf="@+id/imageButton5"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
+        app:layout_constraintVertical_bias="0.351" />
+
+    <Button
+        android:id="@+id/button11"
+        android:layout_width="128dp"
+        android:layout_height="64dp"
+        android:clickable="false"
+        android:rotation="-90"
+        android:text="point"
+        app:icon="@drawable/victory_point"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.79"
+        app:layout_constraintStart_toEndOf="@+id/tableRow"
+        app:layout_constraintTop_toBottomOf="@+id/imageButton7"
+        app:layout_constraintVertical_bias="0.207" />
+
+    <Button
+        android:id="@+id/button10"
+        android:layout_width="128dp"
+        android:layout_height="64dp"
+        android:clickable="false"
+        android:rotation="90"
+        android:text="point"
+        app:icon="@drawable/victory_point"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/tableRow"
+        app:layout_constraintHorizontal_bias="0.212"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageButton6"
+        app:layout_constraintVertical_bias="0.155" />
+
+    <ImageButton
+        android:id="@+id/imageButton6"
+        android:layout_width="133dp"
+        android:layout_height="155dp"
+        android:contentDescription="player number one icon"
+        android:rotation="90"
+        android:src="@drawable/boogiewoogie"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/tableRow"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/imageButton7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="154dp"
-        android:layout_marginEnd="323dp"
-        android:text="Button"
+        android:contentDescription="third player tocken"
+        android:rotation="-90"
+        android:src="@drawable/cyberbunny"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/tableRow"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView9"
+        android:layout_width="120dp"
+        android:layout_height="125dp"
+        android:contentDescription="poisonned"
+        android:src="@drawable/poison"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/imageView10"
+        android:layout_width="126dp"
+        android:layout_height="130dp"
+        android:contentDescription="shrinked"
+        android:src="@drawable/tout_petit"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageButton
+        android:id="@+id/imageButton4"
+        android:layout_width="136dp"
+        android:layout_height="98dp"
+        android:contentDescription="your player icon"
+        android:src="@drawable/cthulhu"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tableRow"
+        app:layout_constraintVertical_bias="0.32999998" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
