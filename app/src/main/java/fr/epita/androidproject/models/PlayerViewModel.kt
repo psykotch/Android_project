@@ -4,12 +4,14 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import java.util.Hashtable
 
-class PlayerViewModel : ViewModel() {
+open class PlayerViewModel : ViewModel() {
 
-    var PV : MutableLiveData<Int> = MutableLiveData(10)
-    var PE : MutableLiveData<Int> = MutableLiveData(10)
-    var nbDice : MutableLiveData<Int> = MutableLiveData(1)
-    var isKing : MutableLiveData<Boolean> = MutableLiveData(false)
-    var permanentCards : MutableLiveData<CardViewModel> = MutableLiveData()
-    var immediateCards : MutableLiveData<CardViewModel> = MutableLiveData()
+    var name: MutableLiveData<String> = MutableLiveData("Unknown")
+    var life: MutableLiveData<Int> = MutableLiveData(10)
+    var energy: MutableLiveData<Int> = MutableLiveData(0)
+    var score: MutableLiveData<Int> = MutableLiveData(0)
+    var nbDice: MutableLiveData<Int> = MutableLiveData(6)
+    var isKing: MutableLiveData<Boolean> = MutableLiveData(false)
+    var permanentCards: MutableLiveData<ArrayList<CardViewModel>> = MutableLiveData(ArrayList())
+    var immediateCards: MutableLiveData<ArrayList<CardViewModel>> = MutableLiveData(ArrayList())
 }

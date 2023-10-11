@@ -8,18 +8,17 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
+import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import fr.epita.androidproject.R
+import fr.epita.androidproject.models.CardViewModel
+import fr.epita.androidproject.models.GameBroadViewModel
 import kotlin.system.exitProcess
 
 class PlayerSelectionPage : Fragment() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-
-        }
-    }
+    private val gameBroadViewModel: GameBroadViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -38,10 +37,9 @@ class PlayerSelectionPage : Fragment() {
 
 
         startButton.setOnClickListener() {
-
+            this.gameBroadViewModel.player.value!!.name.postValue(playerName.editableText.toString())
             findNavController().navigate(
-                PlayerSelectionPageDirections.actionSelectPlayerPageToBoardPage(playerName.editableText.toString(),
-                    arrayOf("test","test2")
+                PlayerSelectionPageDirections.actionSelectPlayerPageToBoardPage(null
                 )
             )
         }

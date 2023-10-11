@@ -141,7 +141,7 @@
         app:layout_constraintTop_toTopOf="@+id/roll_dice_guideline_hor_15" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/roll_dice_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Roll dice Page"
@@ -149,14 +149,5 @@
         app:layout_constraintEnd_toStartOf="@+id/roll_dice_guideline_ver_90"
         app:layout_constraintStart_toStartOf="@+id/roll_dice_guideline_ver_10"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        app:layout_constraintBottom_toTopOf="@+id/roll_dice_guideline_hor_75"
-        app:layout_constraintStart_toStartOf="@+id/roll_dice_guideline_ver_10"
-        app:layout_constraintTop_toBottomOf="@+id/dice_face_3" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
