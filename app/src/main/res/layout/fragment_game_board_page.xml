@@ -14,6 +14,7 @@
         android:id="@+id/board_tokyo_img"
         android:layout_width="240dp"
         android:layout_height="240dp"
+        android:layout_marginTop="32dp"
         android:layout_marginBottom="14dp"
         android:alpha="0.4"
         android:src="@drawable/img_game_table"
@@ -55,6 +56,7 @@
         android:id="@+id/board_player_cards"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:gravity="top"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/guideline5"
@@ -67,6 +69,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="#004A1414"
+            android:translationY="-4dp"
             app:icon="@drawable/powerBack"
             app:iconGravity="top"
             app:iconPadding="0dp"
@@ -80,6 +83,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="#004A1414"
+            android:translationY="-4dp"
             app:icon="@drawable/powerBack"
             app:iconGravity="top"
             app:iconPadding="0dp"
@@ -93,6 +97,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="#004A1414"
+            android:translationY="-4dp"
             app:icon="@drawable/powerBack"
             app:iconGravity="top"
             app:iconPadding="0dp"
@@ -114,14 +119,14 @@
 
         <ImageView
             android:id="@+id/board_victory_img"
-            android:layout_width="20dp"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
             android:layout_weight="1"
             android:src="@drawable/victory_point" />
 
         <TextView
             android:id="@+id/board_victory_text"
-            android:layout_width="20dp"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="10"
@@ -132,14 +137,14 @@
 
         <ImageView
             android:id="@+id/board_life_img"
-            android:layout_width="20dp"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
             android:layout_weight="1"
             android:src="@drawable/life" />
 
         <TextView
             android:id="@+id/board_life_text"
-            android:layout_width="20dp"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="10"
@@ -150,14 +155,14 @@
 
         <ImageView
             android:id="@+id/board_energy_img"
-            android:layout_width="20dp"
-            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
             android:layout_weight="1"
             android:src="@drawable/dice_energy" />
 
         <TextView
             android:id="@+id/board_energy_text"
-            android:layout_width="20dp"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="10"
@@ -172,7 +177,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.11" />
+        app:layout_constraintGuide_percent="0.06" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline8"
@@ -186,7 +191,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.78" />
+        app:layout_constraintGuide_percent="0.8" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline6"
@@ -200,7 +205,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.55" />
+        app:layout_constraintGuide_percent="0.60" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline4"
@@ -241,7 +246,24 @@
         app:layout_constraintTop_toTopOf="@+id/guideline6">
 
         <LinearLayout
-            android:id="@+id/player_img2"
+            android:id="@+id/player2_name"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/board_player2_victory_text2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="hello"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/player2_img"
             android:layout_width="match_parent"
             android:layout_height="64dp"
             android:orientation="horizontal">
@@ -271,18 +293,19 @@
                 android:textAlignment="center"
                 android:textColor="@color/white"
                 android:textStyle="bold" />
+
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/player2_status"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="horizontal">
 
             <ImageView
                 android:id="@+id/board_player2_victory_img"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="20dp"
                 android:layout_weight="1"
                 android:src="@drawable/victory_point"
                 android:tint="#9DD3D3" />
@@ -290,7 +313,7 @@
             <TextView
                 android:id="@+id/board_player2_victory_text"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="10"
                 android:textAlignment="center"
@@ -300,7 +323,7 @@
             <ImageView
                 android:id="@+id/board_player2_life_img"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="20dp"
                 android:layout_weight="1"
                 android:src="@drawable/life"
                 android:tint="#D87F7F" />
@@ -308,7 +331,7 @@
             <TextView
                 android:id="@+id/board_player2_life_text"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="10"
                 android:textAlignment="center"
@@ -318,7 +341,7 @@
             <ImageView
                 android:id="@+id/board_player2_energy_img"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="20dp"
                 android:layout_weight="1"
                 android:src="@drawable/dice_energy"
                 android:tint="#B2D88B" />
@@ -326,7 +349,7 @@
             <TextView
                 android:id="@+id/board_player2_energy_text"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="10"
                 android:textAlignment="center"
@@ -334,6 +357,7 @@
                 android:textStyle="bold" />
 
         </LinearLayout>
+
     </LinearLayout>
 
     <LinearLayout
@@ -345,6 +369,23 @@
         app:layout_constraintEnd_toStartOf="@+id/guideline5"
         app:layout_constraintStart_toStartOf="@+id/guideline4"
         app:layout_constraintTop_toTopOf="@+id/guideline2">
+
+        <LinearLayout
+            android:id="@+id/player4_name"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/board_player2_victory_text2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="hello"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textStyle="bold" />
+        </LinearLayout>
 
         <LinearLayout
             android:id="@+id/player3_img"
@@ -388,7 +429,7 @@
             <ImageView
                 android:id="@+id/board_player3_victory_img"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="20dp"
                 android:layout_weight="1"
                 android:src="@drawable/victory_point"
                 android:tint="#9DD3D3" />
@@ -396,7 +437,7 @@
             <TextView
                 android:id="@+id/board_player3_victory_text"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="10"
                 android:textAlignment="center"
@@ -406,7 +447,7 @@
             <ImageView
                 android:id="@+id/board_player3_life_img"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="20dp"
                 android:layout_weight="1"
                 android:src="@drawable/life"
                 android:tint="#D87F7F" />
@@ -424,7 +465,7 @@
             <ImageView
                 android:id="@+id/board_player3_energy_img"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="20dp"
                 android:layout_weight="1"
                 android:src="@drawable/dice_energy"
                 android:tint="#B2D88B" />
@@ -451,6 +492,23 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline5"
         app:layout_constraintTop_toTopOf="@+id/guideline6">
+
+        <LinearLayout
+            android:id="@+id/player4_name"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/board_player2_victory_text2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="hello"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textStyle="bold" />
+        </LinearLayout>
 
         <LinearLayout
             android:id="@+id/player4_img"
@@ -488,7 +546,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/player_status"
+            android:id="@+id/player4_status"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal">
@@ -496,7 +554,7 @@
             <ImageView
                 android:id="@+id/board_player4_victory_img"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="20dp"
                 android:layout_weight="1"
                 android:src="@drawable/victory_point"
                 android:tint="#9DD3D3" />
@@ -514,7 +572,7 @@
             <ImageView
                 android:id="@+id/board_player4_life_img"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="20dp"
                 android:layout_weight="1"
                 android:src="@drawable/life"
                 android:tint="#D87F7F" />
@@ -532,7 +590,7 @@
             <ImageView
                 android:id="@+id/board_player4_energy_img"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="20dp"
                 android:layout_weight="1"
                 android:src="@drawable/dice_energy"
                 android:tint="#B2D88B" />
@@ -555,37 +613,63 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:gravity="center"
-        android:orientation="horizontal"
+        android:orientation="vertical"
         app:layout_constraintBottom_toTopOf="@+id/board_player_cards"
         app:layout_constraintEnd_toStartOf="@+id/guideline5"
         app:layout_constraintStart_toStartOf="@+id/guideline4"
         app:layout_constraintTop_toTopOf="@+id/guideline3">
 
-        <TextView
-            android:id="@+id/board_player1_dummy2"
+        <LinearLayout
+            android:id="@+id/player4_name"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/board_player2_victory_text2"
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:layout_weight="1"
+                android:text="hello"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/player4_img"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:textAlignment="center"
-            android:textColor="@color/white"
-            android:textStyle="bold" />
+            android:orientation="horizontal">
 
-        <ImageButton
-            android:id="@+id/board_player1_image_button"
-            android:layout_width="64dp"
-            android:layout_height="64dp"
-            android:contentDescription="player number 2 icon"
-            android:scaleType="fitXY"
-            android:src="@drawable/cthulhu" />
+            <TextView
+                android:id="@+id/board_player1_dummy2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/board_player1_dummy"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:textAlignment="center"
-            android:textColor="@color/white"
-            android:textStyle="bold" />
+            <ImageButton
+                android:id="@+id/board_player1_image_button"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:contentDescription="player number 2 icon"
+                android:scaleType="fitXY"
+                android:src="@drawable/cthulhu" />
+
+            <TextView
+                android:id="@+id/board_player1_dummy"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textStyle="bold" />
+        </LinearLayout>
 
     </LinearLayout>
 
