@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.EditText
 import android.widget.ImageButton
 import androidx.navigation.fragment.findNavController
 import fr.epita.androidproject.R
@@ -31,30 +32,20 @@ class PlayerSelectionPage : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val player1 : ImageButton = view.findViewById(R.id.PlayerSelect_1)
-        val player2 : ImageButton = view.findViewById(R.id.PlayerSelect_3)
-        val player3 : ImageButton = view.findViewById(R.id.PlayerSelect_2)
-        val player4 : ImageButton = view.findViewById(R.id.PlayerSelect_4)
+        val playerName: EditText = view.findViewById(R.id.editTextText)
+         playerName.editableText
+        val StartButton : Button = view.findViewById(R.id.button)
 
 
-        player1.setOnClickListener() {
-            changePage()
+        StartButton.setOnClickListener() {
+
+            findNavController().navigate(
+                PlayerSelectionPageDirections.actionSelectPlayerPageToBoardPage(playerName.editableText.toString(),null)
+            )
         }
-        player2.setOnClickListener() {
-            changePage()
-        }
-        player3.setOnClickListener() {
-            changePage()
-        }
-        player4.setOnClickListener() {
-            changePage()
-        }
+
 
     }
 
-    fun  changePage(){
-        findNavController().navigate(
-            PlayerSelectionPageDirections.actionSelectPlayerPageToBoardPage()
-        )
-    }
+
 }

@@ -51,6 +51,14 @@
         <action
             android:id="@+id/action_gameBoardPage_to_rollDicePage"
             app:destination="@id/rollDicePage" />
+        <argument
+            android:name="playerName"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="diceFaces"
+            app:argType="string[]"
+            app:nullable="true" />
     </fragment>
     <fragment
         android:id="@+id/cardListPage"
@@ -76,5 +84,11 @@
         android:id="@+id/rollDicePage"
         android:name="fr.epita.androidproject.fragments.RollDicePage"
         android:label="fragment_roll_dice"
-        tools:layout="@layout/fragment_roll_dice" />
+        tools:layout="@layout/fragment_roll_dice" >
+        <action
+            android:id="@+id/action_rollDicePage_to_gameBoardPage"
+            app:destination="@id/gameBoardPage"
+            app:popUpTo="@id/gameBoardPage"
+            app:popUpToInclusive="true" />
+    </fragment>
 </navigation>

@@ -10,9 +10,24 @@ class DiceViewModel : ViewModel() {
         ONE, TWO, THREE, ENERGY, ATTACK, LIFE
     }
 
-    var diceArray : Array<diceFace>  = arrayOf(diceFace.ONE, diceFace.TWO, diceFace.THREE, diceFace.ENERGY, diceFace.ATTACK, diceFace.LIFE)
+    var diceArray: Array<diceFace> = arrayOf(
+        diceFace.ONE,
+        diceFace.TWO,
+        diceFace.THREE,
+        diceFace.ENERGY,
+        diceFace.ATTACK,
+        diceFace.LIFE
+    )
 
-    private fun roll(): diceFace {
-        return diceArray.random()
+    fun roll(): Array<diceFace> {
+
+        return arrayOf(
+            diceArray.random(),
+            diceArray.random(),
+            diceArray.random(),
+            diceArray.random(),
+            diceArray.random(),
+            diceArray.random()
+        )
     }
 }
