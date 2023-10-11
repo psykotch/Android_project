@@ -23,19 +23,16 @@ class GameBoardPage : Fragment() {
         val playButton: Button = view.findViewById(R.id.playButton)
         val playerName: TextView = view.findViewById(R.id.playerName)
         val dicedResult: TextView = view.findViewById(R.id.playerName2)
-        if (args.playerName != null)
-        {
+        if (args.playerName != null) {
             this.playerName = args.playerName!!
             preferencesEditor.putString("name", this.playerName)
             preferencesEditor.apply()
-        }else
+        } else
             this.playerName = sharedPreferences.getString("name", this.playerName)!!
 
         playerName.text = this.playerName
 
-        if (args.diceFaces != null)
-        {
-            //playerName2.text = args.diceFaces!!.joinToString()
+        if (args.diceFaces != null) {
             dicedResult.text = parseDicesFaces(args.diceFaces!!).toString()
         }
 
@@ -46,7 +43,7 @@ class GameBoardPage : Fragment() {
         }
     }
 
-    fun parseDicesFaces(dicesFace: Array<String>): MutableMap<String, Int> {
+    private fun parseDicesFaces(dicesFace: Array<String>): MutableMap<String, Int> {
         val frequencyMap: MutableMap<String, Int> = HashMap()
 
         for (face in dicesFace) {

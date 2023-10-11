@@ -14,12 +14,6 @@ import kotlin.system.exitProcess
 
 class PlayerSelectionPage : Fragment() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-
-        }
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -41,7 +35,7 @@ class PlayerSelectionPage : Fragment() {
 
             findNavController().navigate(
                 PlayerSelectionPageDirections.actionSelectPlayerPageToBoardPage(playerName.editableText.toString(),
-                    arrayOf("test","test2")
+                    null
                 )
             )
         }
