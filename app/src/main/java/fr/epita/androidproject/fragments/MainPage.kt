@@ -9,11 +9,12 @@ import android.widget.Button
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import fr.epita.androidproject.R
-import fr.epita.androidproject.models.GameBroadViewModel
+import fr.epita.androidproject.models.GameBoardViewModel
 import kotlin.system.exitProcess
 
 class MainPage : Fragment() {
 
+    private val gameBoardViewModel: GameBoardViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

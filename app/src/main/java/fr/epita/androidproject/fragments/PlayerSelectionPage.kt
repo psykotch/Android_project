@@ -7,19 +7,18 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
-import android.widget.ImageButton
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.MutableLiveData
 import androidx.navigation.fragment.findNavController
 import fr.epita.androidproject.R
 import fr.epita.androidproject.models.CardViewModel
-import fr.epita.androidproject.models.GameBroadViewModel
-import kotlin.system.exitProcess
+import fr.epita.androidproject.models.GameBoardViewModel
 
 class PlayerSelectionPage : Fragment() {
 
-    //private val gameBroadViewModel: GameBroadViewModel by activityViewModels()
-    private val gameBroadViewModel: GameBroadViewModel by viewModels()
+//    private val gameBroadViewModel: GameBroadViewModel by activityViewModels()
+    private val gameBoardViewModel: GameBoardViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -36,18 +35,14 @@ class PlayerSelectionPage : Fragment() {
          playerName.editableText
         val startButton : Button = view.findViewById(R.id.button)
 
-
         startButton.setOnClickListener() {
-            this.gameBroadViewModel.player.value!!.name.postValue(playerName.editableText.toString())
+            this.gameBoardViewModel.player.value!!.name.postValue(playerName.editableText.toString())
+            this.gameBoardViewModel.shopCards.value!!.add(CardViewModel())
+            this.gameBoardViewModel.shopCards.value!!.add(CardViewModel())
+            this.gameBoardViewModel.shopCards.value!!.add(CardViewModel())
             findNavController().navigate(
-                PlayerSelectionPageDirections.actionSelectPlayerPageToBoardPage(playerName.editableText.toString(),
-                    null
-                )
+                PlayerSelectionPageDirections.actionSelectPlayerPageToBoardPage(null)
             )
         }
-
-
     }
-
-
 }

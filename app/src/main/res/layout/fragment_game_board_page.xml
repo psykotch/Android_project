@@ -23,8 +23,6 @@
         android:layout_height="67dp"
         android:layout_marginStart="28dp"
         android:text="Shop"
-        app:layout_constraintEnd_toStartOf="@+id/recyclerView"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline5" />
 
@@ -35,8 +33,45 @@
         android:layout_marginEnd="28dp"
         android:text="Play"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline5" />
+
+    <Button
+        android:id="@+id/board_card_button_1"
+        android:layout_width="117dp"
+        android:layout_height="67dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="14dp"
+        android:text="Card"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/board_card_button_3"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/recyclerView"
+        app:layout_constraintStart_toEndOf="@+id/shopButton"
+        app:layout_constraintTop_toTopOf="@+id/guideline5" />
+
+    <Button
+        android:id="@+id/board_card_button_2"
+        android:layout_width="117dp"
+        android:layout_height="67dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="14dp"
+        android:text="Card"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/playButton"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/board_card_button_3"
+        app:layout_constraintTop_toTopOf="@+id/guideline5" />
+
+    <Button
+        android:id="@+id/board_card_button_3"
+        android:layout_width="117dp"
+        android:layout_height="67dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="14dp"
+        android:text="Card"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/board_card_button_2"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/board_card_button_1"
         app:layout_constraintTop_toTopOf="@+id/guideline5" />
 
     <androidx.constraintlayout.widget.Guideline
@@ -52,15 +87,6 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.77" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
-        android:layout_width="398dp"
-        android:layout_height="59dp"
-        app:layout_constraintEnd_toStartOf="@+id/playButton"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/shopButton"
-        app:layout_constraintTop_toTopOf="@+id/guideline5" />
 
     <TextView
         android:id="@+id/playerName"

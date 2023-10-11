@@ -21,7 +21,7 @@
         app:layout_constraintTop_toTopOf="@+id/store_guideline_hor_1" />
 
     <Button
-        android:id="@+id/roll_dice_reset_button"
+        android:id="@+id/store_reset_button"
         android:layout_width="104dp"
         android:layout_height="64dp"
         android:layout_marginBottom="4dp"
@@ -68,6 +68,8 @@
         android:layout_width="88dp"
         android:layout_height="128dp"
         android:background="@drawable/box"
+        android:textOff="ONE"
+        android:textOn="SELECTED"
         app:layout_constraintBottom_toTopOf="@+id/store_guideline_hor_1"
         app:layout_constraintEnd_toStartOf="@+id/store_card_2"
         app:layout_constraintHorizontal_bias="0.5"
