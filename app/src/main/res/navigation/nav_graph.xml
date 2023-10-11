@@ -79,7 +79,16 @@
         android:id="@+id/playerDetailPage"
         android:name="fr.epita.androidproject.fragments.PlayerDetailPage"
         android:label="fragment_player_detail_page"
-        tools:layout="@layout/fragment_player_detail_page" />
+        tools:layout="@layout/fragment_player_detail_page" >
+        <action
+            android:id="@+id/action_playerDetailPage_to_gameBoardPage"
+            app:destination="@id/gameBoardPage"
+            app:popUpToInclusive="true" />
+        <argument
+            android:name="is_player"
+            app:argType="boolean"
+            android:defaultValue="false" />
+    </fragment>
     <fragment
         android:id="@+id/rollDicePage"
         android:name="fr.epita.androidproject.fragments.RollDicePage"
