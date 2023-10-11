@@ -6,8 +6,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import fr.epita.androidproject.R
+import fr.epita.androidproject.models.GameBroadViewModel
 import kotlin.system.exitProcess
 
 class MainPage : Fragment() {

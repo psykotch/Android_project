@@ -8,34 +8,53 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
+import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import fr.epita.androidproject.R
+import fr.epita.androidproject.models.AIPlayerViewModel
+import fr.epita.androidproject.models.CardViewModel
+import fr.epita.androidproject.models.GameBroadViewModel
+import fr.epita.androidproject.models.PlayerViewModel
 import kotlin.system.exitProcess
 
 class GameBoardPage : Fragment() {
     val args: GameBoardPageArgs by navArgs()
+    private val gameBroadViewModel: GameBroadViewModel by activityViewModels()
+
+    //private val gameBroadViewModel: GameBroadViewModel by viewModels()
     private var playerName: String = "no name"
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val sharedPreferences = requireActivity().getPreferences(Context.MODE_PRIVATE)
         val preferencesEditor = sharedPreferences.edit()
-        val playButton: Button = view.findViewById(R.id.playButton)
+
         val playerName: TextView = view.findViewById(R.id.playerName)
-        val dicedResult: TextView = view.findViewById(R.id.playerName2)
         if (args.playerName != null) {
             this.playerName = args.playerName!!
+            //this.gameBroadViewModel.player.value?.name?.postValue(this.playerName)
             preferencesEditor.putString("name", this.playerName)
             preferencesEditor.apply()
         } else
             this.playerName = sharedPreferences.getString("name", this.playerName)!!
+            //this.playerName = this.gameBroadViewModel.player.value!!.name.value.toString()
 
-        playerName.text = this.playerName
+        playerName.text = this.gameBroadViewModel.player.value!!.name.value.toString()
 
+//        playerName.text = this.playerName
+        val dicedResult: TextView = view.findViewById(R.id.playerName2)
         if (args.diceFaces != null) {
             dicedResult.text = parseDicesFaces(args.diceFaces!!).toString()
         }
 
+        val playerDetailButton: Button = view.findViewById(R.id.viewDetailPlayer)
+        playerDetailButton.setOnClickListener(){
+            findNavController().navigate(
+                GameBoardPageDirections.actionBoardPageToPlayerDetailPage(true)
+            )
+        }
+        val playButton: Button = view.findViewById(R.id.playButton)
         playButton.setOnClickListener() {
             findNavController().navigate(
                 GameBoardPageDirections.actionGameBoardPageToRollDicePage()

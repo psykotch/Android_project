@@ -46,7 +46,7 @@ class RollDicePage : Fragment() {
             diceFaceButtons[i].setOnClickListener() {
                 if (diceFaceButtons[i].isChecked) {
                     dicesFacesSelected.add(diceFaceButtons[i].textOff.toString())
-                    diceFaceButtons[i].textOn = "Selected" + diceFaceButtons[i].textOff
+                    diceFaceButtons[i].text = "Selected" + diceFaceButtons[i].textOff
                 } else {
                     dicesFacesSelected.remove(diceFaceButtons[i].text.toString())
                 }
