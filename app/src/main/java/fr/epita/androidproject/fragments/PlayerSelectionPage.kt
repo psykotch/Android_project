@@ -17,7 +17,7 @@ import fr.epita.androidproject.models.GameBoardViewModel
 
 class PlayerSelectionPage : Fragment() {
 
-    private val gameBroadViewModel: GameBroadViewModel by activityViewModels()
+    private val gameBroadViewModel: GameBoardViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -35,10 +35,10 @@ class PlayerSelectionPage : Fragment() {
         val startButton : Button = view.findViewById(R.id.button)
 
         startButton.setOnClickListener() {
-            this.gameBoardViewModel.player.value!!.name.postValue(playerName.editableText.toString())
-            this.gameBoardViewModel.shopCards.value!!.add(CardViewModel())
-            this.gameBoardViewModel.shopCards.value!!.add(CardViewModel())
-            this.gameBoardViewModel.shopCards.value!!.add(CardViewModel())
+            this.gameBroadViewModel.player.value!!.name.postValue(playerName.editableText.toString())
+            this.gameBroadViewModel.shopCards.value!!.add(CardViewModel())
+            this.gameBroadViewModel.shopCards.value!!.add(CardViewModel())
+            this.gameBroadViewModel.shopCards.value!!.add(CardViewModel())
             findNavController().navigate(
                 PlayerSelectionPageDirections.actionSelectPlayerPageToBoardPage(null)
             )

@@ -12,12 +12,12 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import fr.epita.androidproject.R
-import fr.epita.androidproject.models.GameBroadViewModel
+import fr.epita.androidproject.models.GameBoardViewModel
 import fr.epita.androidproject.models.PlayerViewModel
 
 class PlayerDetailPage : Fragment() {
     val args: PlayerDetailPageArgs by navArgs()
-    private val gameBroadViewModel: GameBroadViewModel by activityViewModels()
+    private val gameBroadViewModel: GameBoardViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
