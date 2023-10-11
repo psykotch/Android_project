@@ -46,6 +46,7 @@ class StorePage : Fragment() {
 
         val resetButton: Button = view.findViewById(R.id.store_reset_button)
         val buyButton: Button = view.findViewById(R.id.store_buy_button)
+        val exitButton: Button = view.findViewById(R.id.store_exit_button)
 
         for (i in 0..2) {
             storeCardButtons[i].text =
@@ -73,9 +74,7 @@ class StorePage : Fragment() {
                     this.gameBoardViewModel.shopCards.value?.add(CardViewModel())
                 }
 
-                findNavController().navigate(
-                    StorePageDirections.actionStorePageToGameBoardPage(null)
-                )
+                utils().alert(this.context,"Shop Info","One or more card have been purchased")
             } else {
                 utils().alert(this.context,"Shop Error","You cannot have more than 3 cards")
             }
@@ -89,6 +88,12 @@ class StorePage : Fragment() {
             )
             this.gameBoardViewModel.shopCards.value = shopCards
             this.onViewCreated(view, savedInstanceState)
+        }
+
+        exitButton.setOnClickListener() {
+            findNavController().navigate(
+                StorePageDirections.actionStorePageToGameBoardPage(null)
+            )
         }
     }
 }

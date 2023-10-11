@@ -21,18 +21,28 @@
         app:layout_constraintTop_toTopOf="@+id/store_guideline_hor_1" />
 
     <Button
+        android:id="@+id/store_exit_button"
+        android:layout_width="104dp"
+        android:layout_height="64dp"
+        android:background="@drawable/box"
+        android:text="Exit"
+        android:textColor="@color/black"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/store_guideline_ver_1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/store_guideline_hor_1" />
+
+    <Button
         android:id="@+id/store_reset_button"
         android:layout_width="104dp"
         android:layout_height="64dp"
-        android:layout_marginBottom="4dp"
         android:background="@drawable/box"
         android:text="Reset"
 
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/store_guideline_ver_1"
-        app:layout_constraintHorizontal_bias="0.461"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/store_guideline_ver_2"
         app:layout_constraintTop_toTopOf="@+id/store_guideline_hor_1" />
 
     <androidx.constraintlayout.widget.Guideline
