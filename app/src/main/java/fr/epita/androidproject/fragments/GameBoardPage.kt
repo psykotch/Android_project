@@ -14,6 +14,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import fr.epita.androidproject.R
 import fr.epita.androidproject.models.GameBoardViewModel
+import fr.epita.androidproject.utils
 
 class GameBoardPage : Fragment() {
     val args: GameBoardPageArgs by navArgs()
@@ -41,7 +42,7 @@ class GameBoardPage : Fragment() {
 
         val dicedResult: TextView = view.findViewById(R.id.playerName2)
         if (args.diceFaces != null) {
-            dicedResult.text = parseDicesFaces(args.diceFaces!!).toString()
+            dicedResult.text = utils().parseDicesFaces(args.diceFaces!!).toString()
         }
 
         val playerDetailButton: Button = view.findViewById(R.id.viewDetailPlayer)
@@ -64,17 +65,6 @@ class GameBoardPage : Fragment() {
                 GameBoardPageDirections.actionBoardPageToStorePage()
             )
         }
-    }
-
-    private fun parseDicesFaces(dicesFace: Array<String>): MutableMap<String, Int> {
-        val frequencyMap: MutableMap<String, Int> = HashMap()
-
-        for (face in dicesFace) {
-            var count = frequencyMap[face]
-            if (count == null) count = 0
-            frequencyMap[face] = count + 1
-        }
-        return frequencyMap
     }
 
     override fun onCreateView(

@@ -15,6 +15,7 @@ import androidx.navigation.fragment.findNavController
 import fr.epita.androidproject.R
 import fr.epita.androidproject.models.CardViewModel
 import fr.epita.androidproject.models.GameBoardViewModel
+import fr.epita.androidproject.utils
 
 class StorePage : Fragment() {
 
@@ -47,7 +48,8 @@ class StorePage : Fragment() {
         val buyButton: Button = view.findViewById(R.id.store_buy_button)
 
         for (i in 0..2) {
-            storeCardButtons[i].text = this.gameBoardViewModel.shopCards.value?.get(i)?.uuid.toString()
+            storeCardButtons[i].text =
+                this.gameBoardViewModel.shopCards.value?.get(i)?.uuid.toString()
         }
 
         for (i in 0..2) {
@@ -62,10 +64,11 @@ class StorePage : Fragment() {
         }
 
         buyButton.setOnClickListener() {
-
             if (this.gameBoardViewModel.player.value?.immediateCards?.value?.size!! < 3) {
-                for(storeCardSelected in storeCardsSelected) {
-                    this.gameBoardViewModel.player.value?.immediateCards?.value!!.add(storeCardSelected)
+                for (storeCardSelected in storeCardsSelected) {
+                    this.gameBoardViewModel.player.value?.immediateCards?.value!!.add(
+                        storeCardSelected
+                    )
                     this.gameBoardViewModel.shopCards.value?.remove(storeCardSelected)
                     this.gameBoardViewModel.shopCards.value?.add(CardViewModel())
                 }
@@ -74,20 +77,12 @@ class StorePage : Fragment() {
                     StorePageDirections.actionStorePageToGameBoardPage(null)
                 )
             } else {
-                val builder = AlertDialog.Builder(this.context)
-
-                with(builder)
-                {
-                    setTitle("Androidly Alert")
-                    setMessage("We have a message")
-                    show()
-                }
+                utils().alert(this.context,"Shop Error","You cannot have more than 3 cards")
             }
-
         }
 
         resetButton.setOnClickListener() {
-            val shopCards : ArrayList<CardViewModel> = arrayListOf(
+            val shopCards: ArrayList<CardViewModel> = arrayListOf(
                 CardViewModel(),
                 CardViewModel(),
                 CardViewModel()
