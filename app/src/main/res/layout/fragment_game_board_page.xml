@@ -6,7 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:screenOrientation="landscape"
-    tools:context=".fragments.GameBoardPage">
+    tools:context=".fragments.GameBoardPage"
+    android:background="@drawable/wooden_background">
 
     <TableRow
         android:id="@+id/tableRow"
@@ -115,7 +116,10 @@
             android:layout_width="28dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="TextView" />
+            android:text="TextView"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textStyle="bold" />
 
         <ImageView
             android:id="@+id/imageView6"
@@ -129,7 +133,10 @@
             android:layout_width="21dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="TextView" />
+            android:text="TextView"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textStyle="bold" />
 
         <ImageView
             android:id="@+id/imageView7"
@@ -143,7 +150,10 @@
             android:layout_width="14dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="TextView" />
+            android:text="TextView"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textStyle="bold" />
     </LinearLayout>
 
     <ImageButton
