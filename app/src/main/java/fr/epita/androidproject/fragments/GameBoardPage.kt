@@ -1,6 +1,5 @@
 package fr.epita.androidproject.fragments
 
-import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -28,7 +27,7 @@ class GameBoardPage : Fragment() {
         aiPlayerViewDetailsButton.add(view.findViewById(R.id.dice_face_3))
 
 
-        val playerName: TextView = view.findViewById(R.id.playerName)
+        val playerName: TextView = view.findViewById(R.id.board_player1_name)
         playerName.text = this.gameBoardViewModel.player.value!!.name.value.toString()
 
         val cardButtons: ArrayList<Button> = ArrayList();
@@ -63,14 +62,14 @@ class GameBoardPage : Fragment() {
                 }
             }
 
-            val playerDetailButton: Button = view.findViewById(R.id.viewDetailPlayer)
-            playerDetailButton.setOnClickListener() {
+            val player1DetailButton: Button = view.findViewById(R.id.board_player1_image_button)
+            player1DetailButton.setOnClickListener() {
                 findNavController().navigate(
                     GameBoardPageDirections.actionBoardPageToPlayerDetailPage(0, true)
                 )
             }
-            val endTurnButton: Button = view.findViewById(R.id.endTurnButton)
-            endTurnButton.setOnClickListener() {
+            val nextButton: Button = view.findViewById(R.id.nextButton)
+            nextButton.setOnClickListener() {
 
                 // AIs play
                 for (aiPlayer in this.gameBoardViewModel.aIPlayer.value!!) {
