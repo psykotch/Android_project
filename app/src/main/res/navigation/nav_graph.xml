@@ -40,9 +40,6 @@
             android:id="@+id/action_boardPage_to_playerDetailPage"
             app:destination="@id/playerDetailPage" />
         <action
-            android:id="@+id/action_boardPage_to_cardListPage"
-            app:destination="@id/cardListPage" />
-        <action
             android:id="@+id/action_boardPage_to_storePage"
             app:destination="@id/storePage" />
         <action
@@ -56,11 +53,6 @@
             app:argType="string[]"
             app:nullable="true" />
     </fragment>
-    <fragment
-        android:id="@+id/cardListPage"
-        android:name="fr.epita.androidproject.fragments.CardListPage"
-        android:label="fragment_card_list_page"
-        tools:layout="@layout/fragment_card_list_page" />
     <fragment
         android:id="@+id/cardDetailPage"
         android:name="fr.epita.androidproject.fragments.CardDetailPage"
