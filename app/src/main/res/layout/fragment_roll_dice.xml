@@ -16,8 +16,7 @@
         android:layout_height="101dp"
         android:background="@drawable/box"
 
-        android:drawableTop="@drawable/img_game_table_icon"
-        android:text="Stop"
+        android:drawableTop="@drawable/undo"
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@+id/roll_dice_guideline_ver_10"
