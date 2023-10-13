@@ -10,6 +10,7 @@ import android.widget.ImageButton
 import android.widget.TextView
 import androidx.core.view.isVisible
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import fr.epita.androidproject.R
@@ -17,6 +18,10 @@ import fr.epita.androidproject.models.AIPlayerViewModel
 import fr.epita.androidproject.models.GameBoardViewModel
 import fr.epita.androidproject.models.PlayerViewModel
 import fr.epita.androidproject.utils
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class GameBoardPage : Fragment() {
     private val args: GameBoardPageArgs by navArgs()
@@ -317,5 +322,29 @@ class GameBoardPage : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         return inflater.inflate(R.layout.fragment_game_board_page, container, false)
+    }
+
+
+    fun osef() {
+        lifecycleScope.launch {
+            playRound(1)
+            displayPlayer()
+            delay(2000)
+            playRound(2)
+
+
+        }
+    }
+
+    suspend fun playRound(player : Int) {
+        withContext(Dispatchers.Default) {
+            // IA plays
+        }
+    }
+    suspend fun displayPlayer(){
+        withContext(Dispatchers.Main) {
+            // refresh display
+            // textview.text = "sd"
+        }
     }
 }
