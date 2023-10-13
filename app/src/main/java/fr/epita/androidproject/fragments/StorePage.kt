@@ -48,7 +48,7 @@ class StorePage : Fragment() {
 
         for (i in 0..2) {
             storeCardButtons[i].text =
-                this.gameBoardViewModel.shopCards.value?.get(i)?.uuid.toString()
+                this.gameBoardViewModel.shopCards.value?.get(i)?.type.toString() + " + "+ this.gameBoardViewModel.shopCards.value?.get(i)?.effect.toString()
         }
 
         for (i in 0..2) {
@@ -81,8 +81,8 @@ class StorePage : Fragment() {
         val currPlayerEnergy = this.gameBoardViewModel.player.value?.energy?.value
         val numberOfCard = storeCardsSelected.count()
 
-        var totalCost : Int = 0
-        for(storeCardSelected in storeCardsSelected) {
+        var totalCost: Int = 0
+        for (storeCardSelected in storeCardsSelected) {
             totalCost += storeCardSelected.price
         }
 
@@ -106,21 +106,21 @@ class StorePage : Fragment() {
     }
 
     private fun buyCardsAction(view: View, savedInstanceState: Bundle?, totalCost: Int) {
-            if (this.gameBoardViewModel.player.value?.immediateCards?.value?.size!! < 3) {
-                for (storeCardSelected in storeCardsSelected) {
-                    this.gameBoardViewModel.player.value?.immediateCards?.value!!.add(
-                        storeCardSelected
-                    )
-                    this.gameBoardViewModel.shopCards.value?.remove(storeCardSelected)
-                    this.gameBoardViewModel.shopCards.value?.add(CardViewModel())
-                }
-                var currEnergy = this.gameBoardViewModel.player.value?.energy?.value
-                this.gameBoardViewModel.player.value?.energy?.postValue(currEnergy?.minus(totalCost))
-                utils().alert(this.context, "Shop Info", "One or more card have been purchased")
-                this.onViewCreated(view, savedInstanceState)
-            } else {
-                utils().alert(this.context, "Shop Error", "You cannot have more than 3 cards")
+        if (this.gameBoardViewModel.player.value?.immediateCards?.value?.size!! < 3) {
+            for (storeCardSelected in storeCardsSelected) {
+                this.gameBoardViewModel.player.value?.immediateCards?.value!!.add(
+                    storeCardSelected
+                )
+                this.gameBoardViewModel.shopCards.value?.remove(storeCardSelected)
+                this.gameBoardViewModel.shopCards.value?.add(CardViewModel())
             }
+            var currEnergy = this.gameBoardViewModel.player.value?.energy?.value
+            this.gameBoardViewModel.player.value?.energy?.postValue(currEnergy?.minus(totalCost))
+            utils().alert(this.context, "Shop Info", "One or more card have been purchased")
+            this.onViewCreated(view, savedInstanceState)
+        } else {
+            utils().alert(this.context, "Shop Error", "You cannot have more than 3 cards")
+        }
     }
 
     private fun resetCards(view: View, savedInstanceState: Bundle?) {

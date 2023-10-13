@@ -36,8 +36,8 @@ class RollDicePage : Fragment() {
             dicesFaces = dice.roll()
             for (i in 0..5) {
                 if (!diceFaceButtons[i].isChecked) {
-                    diceFaceButtons[i].textOff = dicesFaces[i].toString()
-                    diceFaceButtons[i].text = dicesFaces[i].toString()
+                    diceFaceButtons[i].textOff = convertDiceFaceValue(dicesFaces[i].toString())
+                    diceFaceButtons[i].text = convertDiceFaceValue(dicesFaces[i].toString())
                 }
             }
             rollTimes -= 1
@@ -76,6 +76,16 @@ class RollDicePage : Fragment() {
                 )
             )
         }
+    }
+
+    private fun convertDiceFaceValue(diceFace: String): String {
+        if (diceFace == "ONE") return "1️⃣"
+        if (diceFace == "TWO") return "2️⃣"
+        if (diceFace == "THREE") return "3️⃣"
+        if (diceFace == "ENERGY") return "⚡"
+        if (diceFace == "ATTACK") return "⚔️"
+        if (diceFace == "LIFE") return "♥️"
+        return ""
     }
 
     override fun onCreateView(
