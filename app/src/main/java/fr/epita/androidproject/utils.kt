@@ -7,17 +7,6 @@ import android.content.DialogInterface
 
 class utils {
 
-    var dialogClickListener =
-        DialogInterface.OnClickListener { _, which ->
-            when (which) {
-                DialogInterface.BUTTON_POSITIVE -> {
-
-                }
-
-                DialogInterface.BUTTON_NEGATIVE -> {}
-            }
-        }
-
     fun alert(context: Context?, title: String, message: String) {
         val builder = AlertDialog.Builder(context)
 
@@ -29,7 +18,6 @@ class utils {
             show()
         }
     }
-
     fun alertYesNo(
         context: Context?,
         title: String,

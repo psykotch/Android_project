@@ -52,6 +52,9 @@
             android:name="diceFaces"
             app:argType="string[]"
             app:nullable="true" />
+        <action
+            android:id="@+id/action_gameBoardPage_to_mainPage"
+            app:destination="@id/mainPage" />
     </fragment>
     <fragment
         android:id="@+id/cardDetailPage"

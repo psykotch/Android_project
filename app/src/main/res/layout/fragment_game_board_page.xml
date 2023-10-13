@@ -22,7 +22,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.08" />
+        app:layout_constraintGuide_percent="0.03" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline7"
@@ -36,14 +36,21 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.33" />
+        app:layout_constraintGuide_percent="0.35" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.60" />
+        app:layout_constraintGuide_percent="0.6034063" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.65" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline4"
@@ -101,6 +108,7 @@
         android:layout_width="128dp"
         android:layout_height="64dp"
         android:text="Next"
+        android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@+id/playButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline9"
@@ -176,7 +184,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@+id/guideline8"
+        app:layout_constraintBottom_toTopOf="@+id/guideline2"
         app:layout_constraintEnd_toStartOf="@+id/guideline4"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -184,7 +192,7 @@
         <ImageView
             android:id="@+id/board_victory_img"
             android:layout_width="match_parent"
-            android:layout_height="30dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:src="@drawable/victory_point" />
 
@@ -197,12 +205,13 @@
             android:textAlignment="center"
             android:textColor="@color/white"
             android:textSize="20sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            app:autoSizeTextType="uniform" />
 
         <ImageView
             android:id="@+id/board_life_img"
             android:layout_width="match_parent"
-            android:layout_height="30dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:src="@drawable/life" />
 
@@ -215,12 +224,13 @@
             android:textAlignment="center"
             android:textColor="@color/white"
             android:textSize="20sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            app:autoSizeTextType="uniform" />
 
         <ImageView
             android:id="@+id/board_energy_img"
             android:layout_width="match_parent"
-            android:layout_height="30dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:src="@drawable/dice_energy" />
 
@@ -233,7 +243,8 @@
             android:textAlignment="center"
             android:textColor="@color/white"
             android:textSize="20sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            app:autoSizeTextType="uniform" />
     </LinearLayout>
 
     <LinearLayout
@@ -273,11 +284,11 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/board_player1_dummy2"
+                android:id="@+id/board_player1_textview_info"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:textAlignment="center"
+                android:textAlignment="textEnd"
                 android:textColor="@color/white"
                 android:textStyle="bold" />
 
@@ -290,13 +301,14 @@
                 android:src="@drawable/cthulhu" />
 
             <TextView
-                android:id="@+id/board_player1_dummy"
+                android:id="@+id/board_player1_textview_dice_info"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:textAlignment="center"
                 android:textColor="@color/white"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                app:autoSizeTextType="uniform" />
         </LinearLayout>
 
     </LinearLayout>
@@ -306,7 +318,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@+id/guideline3"
+        app:layout_constraintBottom_toTopOf="@+id/guideline"
         app:layout_constraintEnd_toStartOf="@+id/guideline4"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline6">
@@ -322,7 +334,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="player 2"
+                android:text="AI player 2"
                 android:textAlignment="center"
                 android:textColor="@color/white"
                 android:textStyle="bold" />
@@ -335,24 +347,24 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/board_player2_img_dummy1"
+                android:id="@+id/board_player2_textview_info"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:textAlignment="center"
+                android:textAlignment="textEnd"
                 android:textColor="@color/white"
                 android:textStyle="bold" />
 
             <ImageButton
                 android:id="@+id/board_player2_image_button"
-                android:layout_width="64dp"
-                android:layout_height="64dp"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
                 android:contentDescription="player number 2 icon"
                 android:scaleType="fitXY"
                 android:src="@drawable/cyberbunny" />
 
             <TextView
-                android:id="@+id/board_player2_img_dummy2"
+                android:id="@+id/board_player2_textview_dice_info"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -371,43 +383,47 @@
             <ImageView
                 android:id="@+id/board_player2_victory_img"
                 android:layout_width="match_parent"
-                android:layout_height="20dp"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:adjustViewBounds="true"
                 android:src="@drawable/victory_point"
                 android:tint="#9DD3D3" />
 
             <TextView
                 android:id="@+id/board_player2_victory_text"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="10"
                 android:textAlignment="center"
                 android:textColor="@color/white"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                app:autoSizeTextType="uniform" />
 
             <ImageView
                 android:id="@+id/board_player2_life_img"
                 android:layout_width="match_parent"
-                android:layout_height="20dp"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:adjustViewBounds="true"
                 android:src="@drawable/life"
                 android:tint="#D87F7F" />
 
             <TextView
                 android:id="@+id/board_player2_life_text"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="10"
                 android:textAlignment="center"
                 android:textColor="@color/white"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                app:autoSizeTextType="uniform" />
 
             <ImageView
                 android:id="@+id/board_player2_energy_img"
                 android:layout_width="match_parent"
-                android:layout_height="20dp"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:src="@drawable/dice_energy"
                 android:tint="#B2D88B" />
@@ -415,12 +431,13 @@
             <TextView
                 android:id="@+id/board_player2_energy_text"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="10"
                 android:textAlignment="center"
                 android:textColor="@color/white"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                app:autoSizeTextType="uniform" />
 
         </LinearLayout>
 
@@ -434,7 +451,7 @@
         app:layout_constraintBottom_toTopOf="@+id/guideline6"
         app:layout_constraintEnd_toStartOf="@+id/guideline5"
         app:layout_constraintStart_toStartOf="@+id/guideline4"
-        app:layout_constraintTop_toTopOf="@+id/guideline2">
+        app:layout_constraintTop_toTopOf="@+id/guideline8">
 
         <LinearLayout
             android:id="@+id/player3_name"
@@ -447,7 +464,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="player 3"
+                android:text="AI player 3"
                 android:textAlignment="center"
                 android:textColor="@color/white"
                 android:textStyle="bold" />
@@ -460,11 +477,11 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/board_player3_dummy1"
+                android:id="@+id/board_player3_textview_info"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:textAlignment="center"
+                android:textAlignment="textEnd"
                 android:textColor="@color/white"
                 android:textStyle="bold" />
 
@@ -477,7 +494,7 @@
                 android:src="@drawable/pumpkinjack" />
 
             <TextView
-                android:id="@+id/board_player3_dummy2"
+                android:id="@+id/board_player3_textview_dice_info"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -495,7 +512,7 @@
             <ImageView
                 android:id="@+id/board_player3_victory_img"
                 android:layout_width="match_parent"
-                android:layout_height="20dp"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:src="@drawable/victory_point"
                 android:tint="#9DD3D3" />
@@ -503,17 +520,18 @@
             <TextView
                 android:id="@+id/board_player3_victory_text"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="10"
                 android:textAlignment="center"
                 android:textColor="@color/white"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                app:autoSizeTextType="uniform" />
 
             <ImageView
                 android:id="@+id/board_player3_life_img"
                 android:layout_width="match_parent"
-                android:layout_height="20dp"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:src="@drawable/life"
                 android:tint="#D87F7F" />
@@ -526,12 +544,13 @@
                 android:text="10"
                 android:textAlignment="center"
                 android:textColor="@color/white"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                app:autoSizeTextType="uniform" />
 
             <ImageView
                 android:id="@+id/board_player3_energy_img"
                 android:layout_width="match_parent"
-                android:layout_height="20dp"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:src="@drawable/dice_energy"
                 android:tint="#B2D88B" />
@@ -544,7 +563,8 @@
                 android:text="10"
                 android:textAlignment="center"
                 android:textColor="@color/white"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                app:autoSizeTextType="uniform" />
 
         </LinearLayout>
     </LinearLayout>
@@ -554,7 +574,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@+id/guideline3"
+        app:layout_constraintBottom_toTopOf="@+id/guideline"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline5"
         app:layout_constraintTop_toTopOf="@+id/guideline6">
@@ -570,7 +590,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="player 4"
+                android:text="AI Player 4"
                 android:textAlignment="center"
                 android:textColor="@color/white"
                 android:textStyle="bold" />
@@ -583,11 +603,11 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/board_player4_dummy1"
+                android:id="@+id/board_player4_textview_info"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:textAlignment="center"
+                android:textAlignment="textEnd"
                 android:textColor="@color/white"
                 android:textStyle="bold" />
 
@@ -602,7 +622,7 @@
                 android:src="@drawable/boogiewoogie" />
 
             <TextView
-                android:id="@+id/board_player4_dummy2"
+                android:id="@+id/board_player4_textview_dice_info"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -620,7 +640,7 @@
             <ImageView
                 android:id="@+id/board_player4_victory_img"
                 android:layout_width="match_parent"
-                android:layout_height="20dp"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:src="@drawable/victory_point"
                 android:tint="#9DD3D3" />
@@ -633,12 +653,13 @@
                 android:text="10"
                 android:textAlignment="center"
                 android:textColor="@color/white"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                app:autoSizeTextType="uniform" />
 
             <ImageView
                 android:id="@+id/board_player4_life_img"
                 android:layout_width="match_parent"
-                android:layout_height="20dp"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:src="@drawable/life"
                 android:tint="#D87F7F" />
@@ -651,12 +672,13 @@
                 android:text="10"
                 android:textAlignment="center"
                 android:textColor="@color/white"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                app:autoSizeTextType="uniform" />
 
             <ImageView
                 android:id="@+id/board_player4_energy_img"
                 android:layout_width="match_parent"
-                android:layout_height="20dp"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:src="@drawable/dice_energy"
                 android:tint="#B2D88B" />
@@ -669,7 +691,8 @@
                 android:text="10"
                 android:textAlignment="center"
                 android:textColor="@color/white"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                app:autoSizeTextType="uniform" />
 
         </LinearLayout>
     </LinearLayout>
