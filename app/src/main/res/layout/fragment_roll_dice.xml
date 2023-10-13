@@ -69,6 +69,7 @@
         android:layout_height="83dp"
         android:background="@drawable/emptydice_dice"
         android:text="one"
+        android:textColor="@color/white"
         android:textOff="one"
         android:textOn="Selected"
         app:layout_constraintBottom_toTopOf="@+id/roll_dice_guideline_hor_75"
@@ -82,6 +83,7 @@
         android:layout_height="83dp"
         android:background="@drawable/emptydice_dice"
         android:text="rollAction()"
+        android:textColor="@color/white"
         android:textOff="one"
         android:textOn="Selected"
         app:layout_constraintBottom_toTopOf="@+id/roll_dice_guideline_hor_75"
@@ -96,6 +98,7 @@
         android:layout_height="83dp"
         android:background="@drawable/emptydice_dice"
         android:text="one"
+        android:textColor="@color/white"
         android:textOff="one"
         android:textOn="Selected"
         app:layout_constraintBottom_toTopOf="@+id/roll_dice_guideline_hor_75"
@@ -110,6 +113,7 @@
         android:layout_height="83dp"
         android:background="@drawable/emptydice_dice"
         android:text="one"
+        android:textColor="@color/white"
         android:textOff="one"
         android:textOn="Selected"
         app:layout_constraintBottom_toTopOf="@+id/roll_dice_guideline_hor_75"
@@ -123,6 +127,7 @@
         android:layout_width="67dp"
         android:layout_height="83dp"
         android:background="@drawable/emptydice_dice"
+        android:textColor="@color/white"
         android:textOff="one"
         android:textOn="Selected"
         app:layout_constraintBottom_toTopOf="@+id/roll_dice_guideline_hor_75"
@@ -137,11 +142,60 @@
         android:layout_height="83dp"
         android:background="@drawable/emptydice_dice"
         android:text="one"
+        android:textColor="@color/white"
         android:textOff="one"
         android:textOn="Selected"
         app:layout_constraintBottom_toTopOf="@+id/roll_dice_guideline_hor_75"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/dice_face_5"
         app:layout_constraintTop_toTopOf="@+id/roll_dice_guideline_hor_15" />
+
+    <ImageView
+        android:id="@+id/dice_number_1"
+        android:layout_width="68dp"
+        android:layout_height="86dp"
+        android:src="@drawable/dice_empty"
+        app:layout_constraintStart_toStartOf="@+id/dice_face_1"
+        app:layout_constraintTop_toTopOf="@+id/dice_face_1" />
+
+    <ImageView
+        android:id="@+id/dice_number_2"
+        android:layout_width="66dp"
+        android:layout_height="69dp"
+        android:src="@drawable/dice_empty"
+        app:layout_constraintStart_toStartOf="@+id/dice_face_2"
+        app:layout_constraintTop_toTopOf="@+id/dice_face_2" />
+
+    <ImageView
+        android:id="@+id/dice_number_3"
+        android:layout_width="67dp"
+        android:layout_height="69dp"
+        android:src="@drawable/dice_empty"
+        app:layout_constraintStart_toStartOf="@+id/dice_face_3"
+        app:layout_constraintTop_toTopOf="@+id/dice_face_3" />
+
+    <ImageView
+        android:id="@+id/dice_number_4"
+        android:layout_width="64dp"
+        android:layout_height="62dp"
+        android:src="@drawable/dice_empty"
+        app:layout_constraintStart_toStartOf="@+id/dice_face_4"
+        app:layout_constraintTop_toTopOf="@+id/dice_face_4" />
+
+    <ImageView
+        android:id="@+id/dice_number_5"
+        android:layout_width="66dp"
+        android:layout_height="59dp"
+        android:src="@drawable/dice_empty"
+        app:layout_constraintStart_toStartOf="@+id/dice_face_5"
+        app:layout_constraintTop_toTopOf="@+id/dice_face_5" />
+
+    <ImageView
+        android:id="@+id/dice_number_6"
+        android:layout_width="66dp"
+        android:layout_height="63dp"
+        android:src="@drawable/dice_empty"
+        app:layout_constraintStart_toStartOf="@+id/dice_face_6"
+        app:layout_constraintTop_toTopOf="@+id/dice_face_6" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
