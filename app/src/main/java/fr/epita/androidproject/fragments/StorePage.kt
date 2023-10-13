@@ -126,7 +126,7 @@ class StorePage : Fragment() {
     private fun resetCards(view: View, savedInstanceState: Bundle?) {
         val currPlayerEnergy = this.gameBoardViewModel.player.value?.energy?.value
 
-        if (currPlayerEnergy?.minus(3)!! <= 0) {
+        if (currPlayerEnergy?.minus(3)!! < 0) {
             utils().alert(this.context, "Shop Error", "Not enough energy in your wallet :(")
         } else {
             utils().alertYesNo(
