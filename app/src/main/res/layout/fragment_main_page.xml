@@ -5,6 +5,7 @@
     android:id="@+id/frameLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background"
     tools:context=".fragments.MainPage"
     tools:layout_editor_absoluteX="0dp"
     tools:layout_editor_absoluteY="-23dp">
@@ -13,54 +14,57 @@
         android:id="@+id/quitButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Quit"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:backgroundTint="#00FFFFFF"
+        android:drawableEnd="@drawable/exit_button"
+        app:layout_constraintBottom_toBottomOf="@+id/aboutButton"
         app:layout_constraintEnd_toStartOf="@+id/guideline_ver_70"
-        app:layout_constraintStart_toStartOf="@+id/guideline_ver_30"
-        app:layout_constraintTop_toBottomOf="@+id/aboutButton" />
-
-    <TextView
-        android:id="@+id/mainTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="King of Tokyo"
-        app:layout_constraintBottom_toTopOf="@+id/startButton"
-        app:layout_constraintEnd_toStartOf="@+id/guideline_ver_70"
-        app:layout_constraintStart_toStartOf="@+id/guideline_ver_30"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/aboutButton" />
 
     <Button
         android:id="@+id/startButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Start"
-        app:layout_constraintBottom_toTopOf="@+id/aboutButton"
-        app:layout_constraintEnd_toStartOf="@+id/guideline_ver_70"
-        app:layout_constraintStart_toStartOf="@+id/guideline_ver_30"
-        app:layout_constraintTop_toBottomOf="@+id/mainTitle" />
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="#00FFFFFF"
+        android:drawableEnd="@drawable/start_button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline_ver_30" />
 
     <Button
         android:id="@+id/aboutButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="About"
-        app:layout_constraintBottom_toTopOf="@+id/quitButton"
-        app:layout_constraintEnd_toStartOf="@+id/guideline_ver_70"
-        app:layout_constraintStart_toStartOf="@+id/guideline_ver_30"
-        app:layout_constraintTop_toBottomOf="@+id/startButton" />
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="#00FFFFFF"
+        android:drawableEnd="@drawable/about"
+        app:layout_constraintBottom_toBottomOf="@+id/startButton"
+        app:layout_constraintEnd_toStartOf="@+id/quitButton"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toEndOf="@+id/startButton"
+        app:layout_constraintTop_toTopOf="@+id/startButton" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_ver_30"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.3" />
+        app:layout_constraintGuide_percent="0.2" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_ver_70"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.7" />
+        app:layout_constraintGuide_percent="0.8" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="404dp"
+        android:layout_height="296dp"
+        android:src="@drawable/king_of_tokyo"
+        app:layout_constraintBottom_toTopOf="@+id/quitButton"
+        app:layout_constraintEnd_toStartOf="@+id/guideline_ver_70"
+        app:layout_constraintStart_toStartOf="@+id/guideline_ver_30"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
