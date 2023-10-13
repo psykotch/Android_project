@@ -14,4 +14,5 @@ open class PlayerViewModel : ViewModel() {
     var isKing: MutableLiveData<Boolean> = MutableLiveData(false)
     var permanentCards: MutableLiveData<ArrayList<CardViewModel>> = MutableLiveData(ArrayList())
     var immediateCards: MutableLiveData<ArrayList<CardViewModel>> = MutableLiveData(ArrayList())
+    var lastDicedValues: MutableLiveData<String> = MutableLiveData("")
 }
