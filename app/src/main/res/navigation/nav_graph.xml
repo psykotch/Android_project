@@ -60,11 +60,7 @@
         android:id="@+id/cardDetailPage"
         android:name="fr.epita.androidproject.fragments.CardDetailPage"
         android:label="fragment_card_page"
-        tools:layout="@layout/fragment_card_page" >
-        <argument
-            android:name="cardId"
-            app:argType="string" />
-    </fragment>
+        tools:layout="@layout/fragment_card_page" />
     <fragment
         android:id="@+id/storePage"
         android:name="fr.epita.androidproject.fragments.StorePage"
