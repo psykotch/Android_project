@@ -19,6 +19,7 @@ class PlayerDetailPage : Fragment() {
     val args: PlayerDetailPageArgs by navArgs()
     private val gameBroadViewModel: GameBoardViewModel by activityViewModels()
 
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
