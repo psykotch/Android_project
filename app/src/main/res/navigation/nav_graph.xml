@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/mainPage">
+
+    <fragment
+        android:id="@+id/mainPage"
+        android:name="fr.epita.androidproject.fragments.MainPage"
+        android:label="fragment_main_page"
+        tools:layout="@layout/fragment_main_page" >
+        <action
+            android:id="@+id/action_mainPage_to_aboutPage"
+            app:destination="@id/aboutPage" />
+        <action
+            android:id="@+id/action_mainPage_to_selectPlayerPage"
+            app:destination="@id/playerSelectionPage" />
+    </fragment>
+    <fragment
+        android:id="@+id/aboutPage"
+        android:name="fr.epita.androidproject.fragments.AboutPage"
+        android:label="fragment_about_page"
+        tools:layout="@layout/fragment_about_page" />
+    <fragment
+        android:id="@+id/playerSelectionPage"
+        android:name="fr.epita.androidproject.fragments.PlayerSelectionPage"
+        android:label="fragment_select_player_page"
+        tools:layout="@layout/fragment_player_selection_page" >
+        <action
+            android:id="@+id/action_selectPlayerPage_to_boardPage"
+            app:destination="@id/gameBoardPage" />
+    </fragment>
+    <fragment
+        android:id="@+id/gameBoardPage"
+        android:name="fr.epita.androidproject.fragments.GameBoardPage"
+        android:label="fragment_main_board"
+        tools:layout="@layout/fragment_game_board_page" >
+        <action
+            android:id="@+id/action_boardPage_to_playerDetailPage"
+            app:destination="@id/playerDetailPage" />
+        <action
+            android:id="@+id/action_boardPage_to_storePage"
+            app:destination="@id/storePage" />
+        <action
+            android:id="@+id/action_boardPage_to_cardDetailPage"
+            app:destination="@id/cardDetailPage" />
+        <action
+            android:id="@+id/action_gameBoardPage_to_rollDicePage"
+            app:destination="@id/rollDicePage" />
+        <argument
+            android:name="diceFaces"
+            app:argType="string[]"
+            app:nullable="true" />
+        <action
+            android:id="@+id/action_gameBoardPage_to_mainPage"
+            app:destination="@id/mainPage" />
+    </fragment>
+    <fragment
+        android:id="@+id/cardDetailPage"
+        android:name="fr.epita.androidproject.fragments.CardDetailPage"
+        android:label="fragment_card_page"
+        tools:layout="@layout/fragment_card_page" >
+        <argument
+            android:name="cardId"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/storePage"
+        android:name="fr.epita.androidproject.fragments.StorePage"
+        android:label="fragment_store_page"
+        tools:layout="@layout/fragment_store_page" >
+        <action
+            android:id="@+id/action_storePage_to_gameBoardPage"
+            app:destination="@id/gameBoardPage" />
+    </fragment>
+    <fragment
+        android:id="@+id/playerDetailPage"
+        android:name="fr.epita.androidproject.fragments.PlayerDetailPage"
+        android:label="fragment_player_detail_page"
+        tools:layout="@layout/fragment_player_detail_page" >
+        <action
+            android:id="@+id/action_playerDetailPage_to_gameBoardPage"
+            app:destination="@id/gameBoardPage"
+            app:popUpToInclusive="true" />
+        <argument
+            android:name="is_player"
+            app:argType="boolean"
+            android:defaultValue="false" />
+        <argument
+            android:name="ai_player_index"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/rollDicePage"
+        android:name="fr.epita.androidproject.fragments.RollDicePage"
+        android:label="fragment_roll_dice"
+        tools:layout="@layout/fragment_roll_dice" >
+        <action
+            android:id="@+id/action_rollDicePage_to_gameBoardPage"
+            app:destination="@id/gameBoardPage"
+            app:popUpTo="@id/gameBoardPage"
+            app:popUpToInclusive="true" />
+    </fragment>
+</navigation>
