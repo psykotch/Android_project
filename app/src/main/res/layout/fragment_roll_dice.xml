@@ -6,30 +6,35 @@
     android:id="@+id/frameLayout9"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background"
     tools:context=".fragments.RollDicePage">
 
 
     <Button
         android:id="@+id/roll_dice_stop_button"
-        android:layout_width="106dp"
-        android:layout_height="70dp"
+        android:layout_width="104dp"
+        android:layout_height="101dp"
         android:background="@drawable/box"
+
+        android:drawableTop="@drawable/img_game_table_icon"
         android:text="Stop"
         android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@+id/roll_dice_guideline_ver_10"
-
         app:layout_constraintTop_toTopOf="@+id/roll_dice_guideline_hor_75" />
 
     <Button
         android:id="@+id/roll_dice_roll_button"
-        android:layout_width="106dp"
-        android:layout_height="70dp"
+        android:layout_width="96dp"
+        android:layout_height="102dp"
         android:background="@drawable/box"
+        android:drawableBottom="@drawable/roll_dice"
         android:text="Roll"
-        android:textColor="@color/black"
-        app:layout_constraintEnd_toStartOf="@+id/roll_dice_guideline_ver_90"
 
-        app:layout_constraintTop_toTopOf="@+id/roll_dice_guideline_hor_75" />
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="@+id/roll_dice_stop_button"
+        app:layout_constraintEnd_toStartOf="@+id/roll_dice_guideline_ver_90"
+        app:layout_constraintTop_toTopOf="@+id/roll_dice_stop_button" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/roll_dice_guideline_hor_75"
@@ -63,7 +68,7 @@
         android:id="@+id/dice_face_1"
         android:layout_width="67dp"
         android:layout_height="83dp"
-        android:background="@drawable/box"
+        android:background="@drawable/emptydice_dice"
         android:text="one"
         android:textOff="one"
         android:textOn="Selected"
@@ -76,7 +81,7 @@
         android:id="@+id/dice_face_2"
         android:layout_width="67dp"
         android:layout_height="83dp"
-        android:background="@drawable/box"
+        android:background="@drawable/emptydice_dice"
         android:text="rollAction()"
         android:textOff="one"
         android:textOn="Selected"
@@ -90,7 +95,7 @@
         android:id="@+id/dice_face_3"
         android:layout_width="67dp"
         android:layout_height="83dp"
-        android:background="@drawable/box"
+        android:background="@drawable/emptydice_dice"
         android:text="one"
         android:textOff="one"
         android:textOn="Selected"
@@ -104,7 +109,7 @@
         android:id="@+id/dice_face_4"
         android:layout_width="67dp"
         android:layout_height="83dp"
-        android:background="@drawable/box"
+        android:background="@drawable/emptydice_dice"
         android:text="one"
         android:textOff="one"
         android:textOn="Selected"
@@ -118,7 +123,7 @@
         android:id="@+id/dice_face_5"
         android:layout_width="67dp"
         android:layout_height="83dp"
-        android:background="@drawable/box"
+        android:background="@drawable/emptydice_dice"
         android:textOff="one"
         android:textOn="Selected"
         app:layout_constraintBottom_toTopOf="@+id/roll_dice_guideline_hor_75"
@@ -131,7 +136,7 @@
         android:id="@+id/dice_face_6"
         android:layout_width="67dp"
         android:layout_height="83dp"
-        android:background="@drawable/box"
+        android:background="@drawable/emptydice_dice"
         android:text="one"
         android:textOff="one"
         android:textOn="Selected"
@@ -139,15 +144,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/dice_face_5"
         app:layout_constraintTop_toTopOf="@+id/roll_dice_guideline_hor_15" />
-
-    <TextView
-        android:id="@+id/roll_dice_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Roll dice Page"
-        app:layout_constraintBottom_toTopOf="@+id/roll_dice_guideline_hor_15"
-        app:layout_constraintEnd_toStartOf="@+id/roll_dice_guideline_ver_90"
-        app:layout_constraintStart_toStartOf="@+id/roll_dice_guideline_ver_10"
-        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
