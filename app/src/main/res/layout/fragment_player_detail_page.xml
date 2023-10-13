@@ -5,7 +5,8 @@
     android:id="@+id/frameLayout6"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.PlayerDetailPage">
+    tools:context=".fragments.PlayerDetailPage"
+    android:background="@drawable/background">
 
     <ImageView
         android:id="@+id/player_details_image"
@@ -20,6 +21,7 @@
         android:id="@+id/player_details_name"
         android:layout_width="167dp"
         android:layout_height="29dp"
+        android:drawableBottom="@drawable/box"
         android:text="Player detail page"
         app:layout_constraintBottom_toTopOf="@+id/player_details_guideline_hor_70"
         app:layout_constraintEnd_toStartOf="@+id/player_details_guideline_ver_70"
@@ -51,7 +53,8 @@
         android:id="@+id/player_details_exit_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Exit"
+        android:backgroundTint="#00FFFFFF"
+        android:drawableBottom="@drawable/exit_button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/player_details_guideline_ver_30"
         app:layout_constraintStart_toStartOf="parent"

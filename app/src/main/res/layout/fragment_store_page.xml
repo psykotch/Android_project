@@ -5,44 +5,51 @@
     android:id="@+id/frameLayout8"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.StorePage">
+    tools:context=".fragments.StorePage"
+    android:background="@drawable/background">
 
     <Button
         android:id="@+id/store_buy_button"
         android:layout_width="104dp"
         android:layout_height="64dp"
         android:background="@drawable/box"
+        android:drawableBottom="@drawable/buy"
         android:text="Buy"
-        android:textColor="@color/black"
 
+        android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/store_guideline_ver_2"
+        app:layout_constraintEnd_toStartOf="@+id/store_guideline_ver_2"
+        app:layout_constraintStart_toStartOf="@+id/store_guideline_ver_1"
         app:layout_constraintTop_toTopOf="@+id/store_guideline_hor_1" />
 
     <Button
         android:id="@+id/store_exit_button"
-        android:layout_width="104dp"
-        android:layout_height="64dp"
-        android:background="@drawable/box"
+        android:layout_width="124dp"
+        android:layout_height="151dp"
+        android:backgroundTint="#00FFFFFF"
+        android:drawableBottom="@drawable/img_game_table_icon"
+
         android:text="Exit"
         android:textColor="@color/black"
-
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/store_guideline_ver_1"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/store_guideline_hor_1" />
+        app:layout_constraintTop_toTopOf="@+id/store_guideline_hor_1"
+        app:layout_constraintVertical_bias="0.686" />
 
     <Button
         android:id="@+id/store_reset_button"
         android:layout_width="104dp"
         android:layout_height="64dp"
         android:background="@drawable/box"
-        android:text="Reset"
 
+        android:drawableBottom="@drawable/undo"
+        android:text="Reset"
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/store_guideline_ver_2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/store_guideline_ver_2"
         app:layout_constraintTop_toTopOf="@+id/store_guideline_hor_1" />
 
     <androidx.constraintlayout.widget.Guideline
@@ -77,7 +84,8 @@
         android:id="@+id/store_card_1"
         android:layout_width="88dp"
         android:layout_height="128dp"
-        android:background="@drawable/box"
+        android:button="@drawable/power_back_vect"
+        android:background="@drawable/powerBack"
         android:textOff="ONE"
         android:textOn="SELECTED"
         app:layout_constraintBottom_toTopOf="@+id/store_guideline_hor_1"
@@ -90,20 +98,20 @@
         android:id="@+id/store_card_2"
         android:layout_width="88dp"
         android:layout_height="128dp"
-        android:background="@drawable/box"
         android:textOff="one"
         android:textOn="Selected"
         app:layout_constraintBottom_toTopOf="@+id/store_guideline_hor_1"
         app:layout_constraintEnd_toStartOf="@+id/store_card_3"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/store_card_1"
-        app:layout_constraintTop_toTopOf="@+id/store_guideline_hor_2" />
+        app:layout_constraintTop_toTopOf="@+id/store_guideline_hor_2"
+        android:background="@drawable/powerBack"/>
 
     <ToggleButton
         android:id="@+id/store_card_3"
         android:layout_width="88dp"
         android:layout_height="128dp"
-        android:background="@drawable/box"
+        android:background="@drawable/powerBack"
         android:textOff="one"
         android:textOn="Selected"
         app:layout_constraintBottom_toTopOf="@+id/store_guideline_hor_1"
@@ -115,10 +123,12 @@
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Store"
+        android:background="@drawable/king_of_tokyo_header"
         app:layout_constraintBottom_toTopOf="@+id/store_guideline_hor_2"
         app:layout_constraintEnd_toStartOf="@+id/store_guideline_ver_2"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="@+id/store_guideline_ver_1"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
