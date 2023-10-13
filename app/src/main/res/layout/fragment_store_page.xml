@@ -5,31 +5,30 @@
     android:id="@+id/frameLayout8"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.StorePage"
-    android:background="@drawable/background">
+    android:background="@drawable/background"
+    tools:context=".fragments.StorePage">
 
     <Button
         android:id="@+id/store_buy_button"
         android:layout_width="104dp"
         android:layout_height="64dp"
-        android:background="@drawable/box"
+        android:backgroundTint="#00FFFFFF"
         android:drawableBottom="@drawable/buy"
-        android:text="Buy"
 
+        android:text="Buy"
         android:textColor="@color/black"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/store_exit_button"
         app:layout_constraintEnd_toStartOf="@+id/store_guideline_ver_2"
         app:layout_constraintStart_toStartOf="@+id/store_guideline_ver_1"
-        app:layout_constraintTop_toTopOf="@+id/store_guideline_hor_1" />
+        app:layout_constraintTop_toTopOf="@+id/store_exit_button" />
 
     <Button
         android:id="@+id/store_exit_button"
-        android:layout_width="124dp"
-        android:layout_height="151dp"
+        android:layout_width="112dp"
+        android:layout_height="82dp"
         android:backgroundTint="#00FFFFFF"
-        android:drawableBottom="@drawable/img_game_table_icon"
+        android:drawableBottom="@drawable/undo"
 
-        android:text="Exit"
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/store_guideline_ver_1"
@@ -42,15 +41,15 @@
         android:id="@+id/store_reset_button"
         android:layout_width="104dp"
         android:layout_height="64dp"
-        android:background="@drawable/box"
 
-        android:drawableBottom="@drawable/undo"
+        android:backgroundTint="#00FFFFFF"
+        android:drawableEnd="@drawable/redo"
         android:text="Reset"
         android:textColor="@color/black"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/store_buy_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/store_guideline_ver_2"
-        app:layout_constraintTop_toTopOf="@+id/store_guideline_hor_1" />
+        app:layout_constraintTop_toTopOf="@+id/store_buy_button" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/store_guideline_hor_1"

@@ -21,12 +21,14 @@
         android:id="@+id/player_details_name"
         android:layout_width="167dp"
         android:layout_height="29dp"
+        android:background="#40FFFFFF"
         android:drawableBottom="@drawable/box"
         android:text="Player detail page"
         app:layout_constraintBottom_toTopOf="@+id/player_details_guideline_hor_70"
         app:layout_constraintEnd_toStartOf="@+id/player_details_guideline_ver_70"
         app:layout_constraintStart_toStartOf="@+id/player_details_guideline_ver_30"
-        app:layout_constraintTop_toBottomOf="@+id/player_details_image" />
+        app:layout_constraintTop_toBottomOf="@+id/player_details_image"
+        app:layout_constraintVertical_bias="0.0" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/player_details_guideline_ver_30"
@@ -62,8 +64,8 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/player_details_recycleView"
-        android:layout_width="399dp"
-        android:layout_height="63dp"
+        android:layout_width="254dp"
+        android:layout_height="181dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/player_details_guideline_ver_30"
@@ -75,6 +77,7 @@
         android:layout_height="132dp"
         android:text="Life: 0"
         app:layout_constraintBottom_toTopOf="@+id/player_details_guideline_hor_70"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/player_details_guideline_ver_70"
         app:layout_constraintTop_toTopOf="parent" />
 
