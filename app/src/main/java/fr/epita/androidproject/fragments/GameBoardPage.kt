@@ -34,7 +34,7 @@ class GameBoardPage : Fragment() {
     private val PlayersInfoTextView: ArrayList<TextView> = ArrayList()
     private val PlayersDiceInfoTextView: ArrayList<TextView> = ArrayList()
     private val humanPlayerStatView: HashMap<String, TextView> = HashMap()
-    private val playerCardsViewButton: ArrayList<Button> = ArrayList()
+    private val playerCardsButton: ArrayList<Button> = ArrayList()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -153,14 +153,6 @@ class GameBoardPage : Fragment() {
         playerCardsButton.add(view.findViewById(R.id.board_card_button_1))
         playerCardsButton.add(view.findViewById(R.id.board_card_button_2))
         playerCardsButton.add(view.findViewById(R.id.board_card_button_3))
-        var playerCards = this.gameBoardViewModel.player.value?.immediateCards?.value
-        for (i in 0..2) {
-            playerCardsViewButton[i].setOnClickListener() {
-                if (playerCards != null) {
-                    GameBoardPageDirections.actionBoardPageToCardDetailPage(playerCards[i].uuid.toString())
-                }
-            }
-        }
     }
 
     private fun getPlayersStatView(view: View) {
