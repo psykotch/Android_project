@@ -67,7 +67,8 @@ class GameBoardPage : Fragment() {
 
         if (args.diceFaces != null) {
             val parsedResult = utils().parseDicesFaces(args.diceFaces!!)
-            PlayersDiceInfoTextView[0].text = parsedResult.toString()
+            //humanPlayer.lastDicedValues.postValue(parsingDiceValue(parsedResult.toString()))
+            PlayersDiceInfoTextView[0].text = parsingDiceValue(parsedResult.toString())
             val attack = parsedResult["ATTACK"]!!
             if (attack > 0) {
                 if (humanPlayer.isKing.value!!) {
@@ -93,12 +94,14 @@ class GameBoardPage : Fragment() {
 
         nextButton.setOnClickListener() {
             playButton.isVisible = false
-           // utils().alert(this.context, "Game Info", "You have Ended your turn, please wait for these others")
+            // utils().alert(this.context, "Game Info", "You have Ended your turn, please wait for these others")
             aiPlay(humanPlayer, aiPlayers)
             playButton.isVisible = true
             utils().alert(this.context, "Game Info", "Now is your turn")
 
             nextButton.isVisible = false
+            this.onViewCreated(view, savedInstanceState)
+
         }
 
         playButton.setOnClickListener() {
@@ -178,7 +181,7 @@ class GameBoardPage : Fragment() {
             val aiDicedResults = aiPlayer.makeMove()
             this.PlayersInfoTextView[i + 1].text = "PLAYING..."
             val aiParsedResult = utils().parseDicesFaces(aiDicedResults)
-            this.PlayersDiceInfoTextView[i + 1].text = aiParsedResult.toString()
+            this.PlayersDiceInfoTextView[i + 1].text = parsingDiceValue((aiParsedResult.toString()))
             val aiAttackCount = aiParsedResult["ATTACK"]
             if (aiAttackCount != null && aiAttackCount > 0) {
                 if (aiPlayer.isKing.value!!) {
@@ -257,6 +260,17 @@ class GameBoardPage : Fragment() {
             if (aiPlayers[i].isKing.value!!)
                 PlayersInfoTextView[i + 1].text = "👑"
         }
+    }
+
+    private fun parsingDiceValue(diceValue: String):String {
+        return diceValue.replace("{","")
+            .replace("}","")
+            .replace("ONE","1️⃣")
+            .replace("TWO","2️⃣")
+            .replace("THREE","3️⃣")
+            .replace("ENERGY","⚡")
+            .replace("LIFE","♥️")
+            .replace("ATTACK","⚔️")
     }
 
     override fun onCreateView(
