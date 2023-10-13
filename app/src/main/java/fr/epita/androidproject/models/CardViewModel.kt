@@ -7,7 +7,7 @@ class CardViewModel : ViewModel() {
     private var typeArray: Array<String> = arrayOf(
         "life",
         "energy",
-        "victory"
+        "attack"
     )
 
     val uuid = UUID.randomUUID()
