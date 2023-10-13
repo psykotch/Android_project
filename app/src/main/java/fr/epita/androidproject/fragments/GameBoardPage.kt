@@ -10,7 +10,6 @@ import android.widget.ImageButton
 import android.widget.TextView
 import androidx.core.view.isVisible
 import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import fr.epita.androidproject.R
@@ -18,10 +17,6 @@ import fr.epita.androidproject.models.AIPlayerViewModel
 import fr.epita.androidproject.models.GameBoardViewModel
 import fr.epita.androidproject.models.PlayerViewModel
 import fr.epita.androidproject.utils
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 
 class GameBoardPage : Fragment() {
     private val args: GameBoardPageArgs by navArgs()
@@ -46,22 +41,49 @@ class GameBoardPage : Fragment() {
         val shopButton: Button = view.findViewById(R.id.shopButton)
         val playerName: TextView = view.findViewById(R.id.board_player1_name)
 
+        getPlayersStatView(view)
+        updatePlayerStatView(humanPlayer)
+
+        getPlayerCardView(view)
+
+        if (!this.gameBoardViewModel.isStarted.value!!) {
+            this.gameBoardViewModel.isStarted.postValue(true)
+            humanPlayer.isKing.postValue(true)
+            PlayersInfoTextView[0].text = "👑"
+        }
         playerName.text = humanPlayer.name.value.toString()
 
-        getPlayersStatView(view)
+        val cardButtons: ArrayList<Button> = ArrayList();
+        cardButtons.add(view.findViewById(R.id.board_card_button_1))
+        cardButtons.add(view.findViewById(R.id.board_card_button_2))
+        cardButtons.add(view.findViewById(R.id.board_card_button_3))
+
+        var count = 0
+        for (card in humanPlayer.immediateCards.value!!) {
+            val cardButton = cardButtons[count]
+            cardButton.text = card.uuid.toString()
+            count += 1
+        }
 
         if (args.diceFaces != null) {
             val parsedResult = utils().parseDicesFaces(args.diceFaces!!)
+            //humanPlayer.lastDicedValues.postValue(parsingDiceValue(parsedResult.toString()))
             PlayersDiceInfoTextView[0].text = parsingDiceValue(parsedResult.toString())
-            playerUpdateAfterRollDice(parsedResult, humanPlayer, nextButton)
+            val attack = parsedResult["ATTACK"]
+            if (attack != null && attack > 0) {
+                if (humanPlayer.isKing.value!!) {
+                    for (aiPlayer in this.gameBoardViewModel.aIPlayer.value!!) {
+                        aiPlayer.life.postValue(aiPlayer.life.value!!.minus(attack))
+                    }
+                } else {
+                    for (aiPlayer in this.gameBoardViewModel.aIPlayer.value!!) {
+                        if (aiPlayer.isKing.value!!)
+                            aiPlayer.life.postValue(aiPlayer.life.value!!.minus(attack))
+                    }
+                }
+            }
+            nextButton.isVisible = true
         }
-        updatePlayerStatView()
-
-        getPlayerCardView(view)
-        updatePlayerCardView(humanPlayer)
-
-        initGame(humanPlayer)
-
 
         val humanPlayerDetailButton: ImageButton = view.findViewById(R.id.board_player1_image_button)
         humanPlayerDetailButton.setOnClickListener() {
@@ -72,9 +94,8 @@ class GameBoardPage : Fragment() {
 
         nextButton.setOnClickListener() {
             playButton.isVisible = false
-
-            aiPlay(humanPlayer, aiPlayers)
-
+            // utils().alert(this.context, "Game Info", "You have Ended your turn, please wait for these others")
+            aiPlay(humanPlayer, aiPlayers, view, savedInstanceState)
             playButton.isVisible = true
             utils().alert(this.context, "Game Info", "Now is your turn")
 
@@ -96,63 +117,10 @@ class GameBoardPage : Fragment() {
         }
     }
 
-    private fun updatePlayerCardView(humanPlayer: PlayerViewModel) {
-        var count = 0
-        for (card in humanPlayer.immediateCards.value!!) {
-            val playerCardButton = playerCardsButton[count]
-            playerCardButton.text = card.uuid.toString()
-            count += 1
-        }
-    }
-
-    private fun initGame(humanPlayer: PlayerViewModel) {
-        if (!this.gameBoardViewModel.isStarted.value!!) {
-            this.gameBoardViewModel.isStarted.postValue(true)
-            humanPlayer.isKing.postValue(true)
-            PlayersInfoTextView[0].text = "👑"
-        }
-    }
-
-    private fun playerUpdateAfterRollDice(parsedResult: MutableMap<String, Int>,humanPlayer: PlayerViewModel, nextButton: Button) {
-            val attack = parsedResult["ATTACK"]
-            if (attack != null && attack > 0) {
-                if (humanPlayer.isKing.value!!) {
-                    for (aiPlayer in this.gameBoardViewModel.aIPlayer.value!!) {
-                        aiPlayer.life.postValue(aiPlayer.life.value!!.minus(attack))
-                    }
-                } else {
-                    for (aiPlayer in this.gameBoardViewModel.aIPlayer.value!!) {
-                        if (aiPlayer.isKing.value!!)
-                            aiPlayer.life.postValue(aiPlayer.life.value!!.minus(attack))
-                    }
-                }
-            }
-
-            val energy = parsedResult["ENERGY"]
-            if (energy != null && energy > 0) {
-                var currEnergy = this.gameBoardViewModel.player.value?.energy?.value
-                this.gameBoardViewModel.player.value?.energy?.postValue(currEnergy?.plus(energy))
-            }
-
-            val life = parsedResult["LIFE"]
-            if (life != null && life > 0) {
-                var currLife = this.gameBoardViewModel.player.value?.life?.value
-                this.gameBoardViewModel.player.value?.life?.postValue(currLife?.plus(life))
-            }
-
-            val victory = parsedResult["SCORE"]
-            if (victory != null && victory > 0) {
-                var currVictory = this.gameBoardViewModel.player.value?.score?.value
-                this.gameBoardViewModel.player.value?.score?.postValue(currVictory?.plus(victory))
-            }
-
-            nextButton.isVisible = true
-    }
-
     private fun getPlayerCardView(view: View) {
-        playerCardsButton.add(view.findViewById(R.id.board_card_button_1))
-        playerCardsButton.add(view.findViewById(R.id.board_card_button_2))
-        playerCardsButton.add(view.findViewById(R.id.board_card_button_3))
+        playerCardsViewButton.add(view.findViewById(R.id.board_card_button_1))
+        playerCardsViewButton.add(view.findViewById(R.id.board_card_button_2))
+        playerCardsViewButton.add(view.findViewById(R.id.board_card_button_3))
         var playerCards = this.gameBoardViewModel.player.value?.immediateCards?.value
         for (i in 0..2) {
             playerCardsViewButton[i].setOnClickListener() {
@@ -202,20 +170,19 @@ class GameBoardPage : Fragment() {
         humanPlayerStatView["Energy"] = view.findViewById(R.id.board_energy_text)
     }
 
-    private fun updatePlayerStatView() {
-        val aiPlayers = this.gameBoardViewModel.aIPlayer.value
-        val humanPlayer = this.gameBoardViewModel.player.value
+    private fun updatePlayerStatView(humanPlayer: PlayerViewModel) {
+        val aiPlayers = gameBoardViewModel.aIPlayer.value
         for (i in 0..2) {
             aiPlayersVictory[i].text = aiPlayers?.get(i)?.score?.value.toString()
-            //aiPlayersLife[i].text = aiPlayers?.get(i)?.life?.value.toString()
+            aiPlayersLife[i].text = aiPlayers?.get(i)?.life?.value.toString()
             aiPlayersEnergy[i].text = aiPlayers?.get(i)?.energy?.value.toString()
         }
-        humanPlayerStatView["Life"]?.text = humanPlayer?.life?.value?.toString()
-        humanPlayerStatView["Victory"]?.text = humanPlayer?.score?.value?.toString()
-        humanPlayerStatView["Energy"]?.text = humanPlayer?.energy?.value?.toString()
+        humanPlayerStatView["Life"]?.text = humanPlayer.life.value?.toString()
+        humanPlayerStatView["Victory"]?.text = humanPlayer.score.value?.toString()
+        humanPlayerStatView["Energy"]?.text = humanPlayer.energy.value?.toString()
     }
 
-    private fun aiPlay(humanPlayer: PlayerViewModel, aiPlayers: Array<AIPlayerViewModel>) {
+    private fun aiPlay(humanPlayer: PlayerViewModel, aiPlayers: Array<AIPlayerViewModel>, view: View, savedInstanceState: Bundle?) {
 
         for (i in 0..2) {
             val aiPlayer = aiPlayers[i]
@@ -245,6 +212,7 @@ class GameBoardPage : Fragment() {
                             aiPlayer,
                             ::tokyoGetOut
                         )
+
                     } else {
                         for (aiPlayerLeft in aiPlayers) {
                             if (aiPlayerLeft.isKing.value!! && aiPlayer != aiPlayerLeft) {
@@ -256,30 +224,17 @@ class GameBoardPage : Fragment() {
                     }
                 }
             }
-
-            val energy = aiParsedResult["ENERGY"]
-            if (energy != null && energy > 0) {
-                var currEnergy = aiPlayer.energy.value
-                aiPlayer.energy.postValue(currEnergy?.plus(energy))
-            }
-
-            val life = aiParsedResult["LIFE"]
-            if (life != null && life > 0) {
-                var currLife = aiPlayer.life.value
-                aiPlayer.energy.postValue(currLife?.plus(life))
-            }
-
-            val victory = aiParsedResult["VICTORY"]
-            if (victory != null && victory > 0) {
-                var currScore = aiPlayer.score.value
-                aiPlayer.score.postValue(currScore?.plus(victory))
-            }
         }
+        updatePlayerStatView(humanPlayer)
         checkPlayersLife(humanPlayer, aiPlayers)
         checkKing(humanPlayer, aiPlayers)
+        this.onViewCreated(view, savedInstanceState)
     }
 
-    private fun tokyoGetOut(humanPlayer: PlayerViewModel, aiPlayer: AIPlayerViewModel) {
+    private fun tokyoGetOut(
+        humanPlayer: PlayerViewModel,
+        aiPlayer: AIPlayerViewModel
+    ) {
         humanPlayer.isKing.postValue(false)
         aiPlayer.isKing.postValue(true)
     }
@@ -330,29 +285,5 @@ class GameBoardPage : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         return inflater.inflate(R.layout.fragment_game_board_page, container, false)
-    }
-
-
-    fun osef() {
-        lifecycleScope.launch {
-            playRound(1)
-            displayPlayer()
-            delay(2000)
-            playRound(2)
-
-
-        }
-    }
-
-    suspend fun playRound(player : Int) {
-        withContext(Dispatchers.Default) {
-            // IA plays
-        }
-    }
-    suspend fun displayPlayer(){
-        withContext(Dispatchers.Main) {
-            // refresh display
-            // textview.text = "sd"
-        }
     }
 }
