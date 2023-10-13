@@ -69,8 +69,8 @@ class GameBoardPage : Fragment() {
             val parsedResult = utils().parseDicesFaces(args.diceFaces!!)
             //humanPlayer.lastDicedValues.postValue(parsingDiceValue(parsedResult.toString()))
             PlayersDiceInfoTextView[0].text = parsingDiceValue(parsedResult.toString())
-            val attack = parsedResult["ATTACK"]!!
-            if (attack > 0) {
+            val attack = parsedResult["ATTACK"]
+            if (attack != null && attack > 0) {
                 if (humanPlayer.isKing.value!!) {
                     for (aiPlayer in this.gameBoardViewModel.aIPlayer.value!!) {
                         aiPlayer.life.postValue(aiPlayer.life.value!!.minus(attack))
@@ -95,7 +95,7 @@ class GameBoardPage : Fragment() {
         nextButton.setOnClickListener() {
             playButton.isVisible = false
             // utils().alert(this.context, "Game Info", "You have Ended your turn, please wait for these others")
-            aiPlay(humanPlayer, aiPlayers)
+            aiPlay(humanPlayer, aiPlayers, view, savedInstanceState)
             playButton.isVisible = true
             utils().alert(this.context, "Game Info", "Now is your turn")
 
@@ -174,12 +174,11 @@ class GameBoardPage : Fragment() {
         humanPlayerStatView["Energy"]?.text = humanPlayer.energy.value?.toString()
     }
 
-    private fun aiPlay(humanPlayer: PlayerViewModel, aiPlayers: Array<AIPlayerViewModel>) {
+    private fun aiPlay(humanPlayer: PlayerViewModel, aiPlayers: Array<AIPlayerViewModel>, view: View, savedInstanceState: Bundle?) {
 
         for (i in 0..2) {
             val aiPlayer = aiPlayers[i]
             val aiDicedResults = aiPlayer.makeMove()
-            this.PlayersInfoTextView[i + 1].text = "PLAYING..."
             val aiParsedResult = utils().parseDicesFaces(aiDicedResults)
             this.PlayersDiceInfoTextView[i + 1].text = parsingDiceValue((aiParsedResult.toString()))
             val aiAttackCount = aiParsedResult["ATTACK"]
@@ -217,11 +216,11 @@ class GameBoardPage : Fragment() {
                     }
                 }
             }
-            this.PlayersInfoTextView[i + 1].text = ""
         }
         updatePlayerStatView(humanPlayer)
         checkPlayersLife(humanPlayer, aiPlayers)
         checkKing(humanPlayer, aiPlayers)
+        this.onViewCreated(view, savedInstanceState)
     }
 
     private fun tokyoGetOut(
