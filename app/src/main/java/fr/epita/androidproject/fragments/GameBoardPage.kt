@@ -29,6 +29,7 @@ class GameBoardPage : Fragment() {
     private val PlayersInfoTextView: ArrayList<TextView> = ArrayList()
     private val PlayersDiceInfoTextView: ArrayList<TextView> = ArrayList()
     private val humanPlayerStatView: HashMap<String, TextView> = HashMap()
+    private val playerCardsViewButton: ArrayList<ImageButton> = ArrayList()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -42,6 +43,9 @@ class GameBoardPage : Fragment() {
 
         getPlayersStatView(view)
         updatePlayerStatView(humanPlayer)
+
+        getPlayerCardView(view)
+
         if (!this.gameBoardViewModel.isStarted.value!!) {
             this.gameBoardViewModel.isStarted.postValue(true)
             humanPlayer.isKing.postValue(true)
@@ -108,6 +112,12 @@ class GameBoardPage : Fragment() {
                 GameBoardPageDirections.actionBoardPageToStorePage()
             )
         }
+    }
+
+    private fun getPlayerCardView(view: View) {
+        playerCardsViewButton.add(view.findViewById(R.id.board_card_button_1))
+        playerCardsViewButton.add(view.findViewById(R.id.board_card_button_2))
+        playerCardsViewButton.add(view.findViewById(R.id.board_card_button_3))
     }
 
     private fun getPlayersStatView(view: View) {
@@ -182,13 +192,17 @@ class GameBoardPage : Fragment() {
                     //attack the king
                     if (humanPlayer.isKing.value!!) {
                         humanPlayer.life.postValue(humanPlayer.life.value!!.minus(aiAttackCount))
-                        val action = !utils().alertYesNo(
-                            this.context, "Attacked", "Do you want to get out of the tokyo", "Yes", "Hell no"
+                        utils().alertYesNo(
+                            this.context,
+                            "Attacked",
+                            "Do you want to get out of the tokyo",
+                            "Yes",
+                            "Hell no",
+                            humanPlayer,
+                            aiPlayer,
+                            ::tokyoGetOut
                         )
-                        if (action) {
-                            humanPlayer.isKing.postValue(false)
-                            aiPlayer.isKing.postValue(true)
-                        }
+
                     } else {
                         for (aiPlayerLeft in aiPlayers) {
                             if (aiPlayerLeft.isKing.value!! && aiPlayer != aiPlayerLeft) {
@@ -205,6 +219,14 @@ class GameBoardPage : Fragment() {
         updatePlayerStatView(humanPlayer)
         checkPlayersLife(humanPlayer, aiPlayers)
         checkKing(humanPlayer, aiPlayers)
+    }
+
+    private fun tokyoGetOut(
+        humanPlayer: PlayerViewModel,
+        aiPlayer: AIPlayerViewModel
+    ) {
+        humanPlayer.isKing.postValue(false)
+        aiPlayer.isKing.postValue(true)
     }
 
     private fun checkPlayersLife(humanPlayer: PlayerViewModel, aiPlayers: Array<AIPlayerViewModel>) {
