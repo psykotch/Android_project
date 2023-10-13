@@ -113,46 +113,56 @@ class GameBoardPage : Fragment() {
         }
     }
 
-    private fun playerUpdateAfterRollDice(parsedResult: MutableMap<String, Int>,humanPlayer: PlayerViewModel, nextButton: Button) {
-            val attack = parsedResult["ATTACK"]
-            if (attack != null && attack > 0) {
-                if (humanPlayer.isKing.value!!) {
-                    for (aiPlayer in this.gameBoardViewModel.aIPlayer.value!!) {
+    private fun playerUpdateAfterRollDice(parsedResult: MutableMap<String, Int>, humanPlayer: PlayerViewModel, nextButton: Button) {
+        val attack = parsedResult["ATTACK"]
+        if (attack != null && attack > 0) {
+            if (humanPlayer.isKing.value!!) {
+                for (aiPlayer in this.gameBoardViewModel.aIPlayer.value!!) {
+                    aiPlayer.life.postValue(aiPlayer.life.value!!.minus(attack))
+                }
+            } else {
+                for (aiPlayer in this.gameBoardViewModel.aIPlayer.value!!) {
+                    if (aiPlayer.isKing.value!!)
                         aiPlayer.life.postValue(aiPlayer.life.value!!.minus(attack))
-                    }
-                } else {
-                    for (aiPlayer in this.gameBoardViewModel.aIPlayer.value!!) {
-                        if (aiPlayer.isKing.value!!)
-                            aiPlayer.life.postValue(aiPlayer.life.value!!.minus(attack))
-                    }
                 }
             }
+        }
 
-            val energy = parsedResult["ENERGY"]
-            if (energy != null && energy > 0) {
-                var currEnergy = this.gameBoardViewModel.player.value?.energy?.value
-                this.gameBoardViewModel.player.value?.energy?.postValue(currEnergy?.plus(energy))
-            }
+        val energy = parsedResult["ENERGY"]
+        if (energy != null && energy > 0) {
+            var currEnergy = this.gameBoardViewModel.player.value?.energy?.value
+            this.gameBoardViewModel.player.value?.energy?.postValue(currEnergy?.plus(energy))
+        }
 
-            val life = parsedResult["LIFE"]
-            if (life != null && life > 0) {
-                var currLife = this.gameBoardViewModel.player.value?.life?.value
-                this.gameBoardViewModel.player.value?.life?.postValue(currLife?.plus(life))
-            }
+        val life = parsedResult["LIFE"]
+        if (life != null && life > 0) {
+            var currLife = this.gameBoardViewModel.player.value?.life?.value
+            this.gameBoardViewModel.player.value?.life?.postValue(currLife?.plus(life))
+        }
 
-            val victory = parsedResult["SCORE"]
-            if (victory != null && victory > 0) {
-                var currVictory = this.gameBoardViewModel.player.value?.score?.value
-                this.gameBoardViewModel.player.value?.score?.postValue(currVictory?.plus(victory))
-            }
+        val victory = parsedResult["SCORE"]
+        if (victory != null && victory > 0) {
+            var currVictory = this.gameBoardViewModel.player.value?.score?.value
+            this.gameBoardViewModel.player.value?.score?.postValue(currVictory?.plus(victory))
+        }
 
-            nextButton.isVisible = true
+        nextButton.isVisible = true
     }
 
     private fun getPlayerCardView(view: View) {
         playerCardsButton.add(view.findViewById(R.id.board_card_button_1))
         playerCardsButton.add(view.findViewById(R.id.board_card_button_2))
         playerCardsButton.add(view.findViewById(R.id.board_card_button_3))
+        val playerCards = this.gameBoardViewModel.player.value?.immediateCards?.value
+        for (i in 0..2) {
+            playerCardsButton[i].setOnClickListener() {
+                if (playerCards != null && playerCards.count() > i)
+                    findNavController().navigate(
+                        GameBoardPageDirections.actionBoardPageToCardDetailPage(playerCards[i].uuid.toString())
+                    )
+            }
+        }
+
     }
 
     private fun getPlayersStatView(view: View) {
@@ -306,15 +316,15 @@ class GameBoardPage : Fragment() {
         }
     }
 
-    private fun parsingDiceValue(diceValue: String):String {
-        return diceValue.replace("{","")
-            .replace("}","")
-            .replace("ONE","1️⃣")
-            .replace("TWO","2️⃣")
-            .replace("THREE","3️⃣")
-            .replace("ENERGY","⚡")
-            .replace("LIFE","♥️")
-            .replace("ATTACK","⚔️")
+    private fun parsingDiceValue(diceValue: String): String {
+        return diceValue.replace("{", "")
+            .replace("}", "")
+            .replace("ONE", "1️⃣")
+            .replace("TWO", "2️⃣")
+            .replace("THREE", "3️⃣")
+            .replace("ENERGY", "⚡")
+            .replace("LIFE", "♥️")
+            .replace("ATTACK", "⚔️")
     }
 
     override fun onCreateView(
@@ -336,12 +346,13 @@ class GameBoardPage : Fragment() {
         }
     }
 
-    suspend fun playRound(player : Int) {
+    suspend fun playRound(player: Int) {
         withContext(Dispatchers.Default) {
             // IA plays
         }
     }
-    suspend fun displayPlayer(){
+
+    suspend fun displayPlayer() {
         withContext(Dispatchers.Main) {
             // refresh display
             // textview.text = "sd"
